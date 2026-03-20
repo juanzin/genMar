@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div class="container">
-        <div class="timer-container">
-            <div class="timer">25</div>
-            <div class="timer">:</div>
-            <div class="timer">00</div>
-        </div>
-        <div class="button-container">
-          <button class="button" id="reset"> Reset </button>
-          <button class="button" id="start"> Start </button>
-        </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Website</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="app">
+
+    <h2 class="title">Pomodoro</h2>
+
+    <div class="timer-container">
+      <svg class="circle-container">
+        <circle class="bg-circle"></circle>
+        <circle id="progress-circle" class="progress-circle" stroke-dasharray="691">
+        </circle>
+      </svg>
+      <div class="time" id="time">25:00</div>
     </div>
-  </body>
+
+    <div class="modes">
+      <button id="focus">Focus</button>
+      <button id="short">Short Break</button>
+      <button id="long">Long Break</button>
+    </div>
+
+    <div class="controls">
+      <button class="start" id="start">Start</button>
+      <button class="secondary" id="reset">Reset</button>
+    </div>
+
+  </div>
+</body>
+
 </html>

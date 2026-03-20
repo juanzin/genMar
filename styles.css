@@ -1,33 +1,131 @@
-.container {
-    background-color: red;
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
+
 body {
-    margin: 0!important;
+  background: #121212;
+  color: #f5f5f5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.time-container {
-    text-align: center;
-    vertical-align: middle;
+.app {
+  text-align: center;
 }
 
-.timer {
-    padding: 1px;
-    display: inline-block;
-    font-size: 30pt;
-    font-family: 'Times New Roman', Times, serif;
+.title {
+  color: #a0a0a0;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
-.button-container {
-    display: inline-block;
-    padding: 5px;
+.timer-container {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 30px;
 }
 
-.button {
-    border-color: black;
-    border-width: 2px;
-    background-color: green;
+svg {
+  transform: rotate(-90deg);
+}
+
+.bg-circle {
+  fill: none;
+  stroke: #2a2a2a;
+  stroke-width: 12;
+}
+
+.progress-circle {
+  fill: none;
+  stroke: #ff5c5c;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.time {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.modes {
+  margin-bottom: 25px;
+}
+
+.modes button {
+  background: transparent;
+  border: 1px solid #333;
+  color: #aaa;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.active {
+  background: #ff5c5c !important;
+  color: white !important;
+  border: none !important;
+}
+
+
+
+.modes button:hover {
+  color: white;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.controls button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.controls .start {
+  color: white;
+}
+
+.controls .secondary {
+  background: transparent;
+  border: 1px solid #444;
+  color: #ccc;
+}
+
+.controls button:hover {
+  transform: scale(1.05);
+}
+
+.disabled {
+    pointer-events: none;
+    background-color: gray;
+}
+
+.circle-container {
+    width: 260px;
+    height: 260px;
+}
+
+.circle-container circle {
+    cy: 130;
+    cx: 130;
+    r: 110;
 }
