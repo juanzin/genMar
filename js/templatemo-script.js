@@ -37,6 +37,42 @@ $(document).ready(function(){
     }
   });
 
+  /// EDITION
+  function sendMessage() {
+    console.log("emailjs:", typeof emailjs);
+    // var name = document.getElementById("contact_name").value;
+    // var email = document.getElementById("contact_email").value;
+    // var subject = document.getElementById("contact_subject").value;
+    // var message = document.getElementById("contact_message").value;
+    // console.log(email);
+    var form = document.getElementById("contact-form");
+    var status = document.getElementById("status");
+
+    emailjs.sendForm(
+        "service_aprt4sa",
+        "template_j4t58mi",
+        form
+      ).then(() => {
+        status.textContent = "Email sent successfully.";
+        form.reset();
+      }).catch((error) => {
+        status.textContent = "Failed to send email.";
+        console.error(error);
+      });
+  }
+
+  function init() {
+    emailjs.init({
+      publicKey: "AACZR4h3GEaJ1RWfC",
+    });
+    // events 
+    var buttonSendMessage = document.getElementById("sendMessage");
+    buttonSendMessage.onclick = sendMessage;
+  }
+
+  init();
+  // END EDITION
+
 });
 
 $(window).load(function() {
