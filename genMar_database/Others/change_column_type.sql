@@ -1,0 +1,2 @@
+ALTER TABLE Chofer
+ALTER COLUMN Telefono VARCHAR(20);

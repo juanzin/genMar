@@ -1,0 +1,74 @@
+USE	 company;
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Chofer' AND TABLE_SCHEMA = 'dbo')
+BEGIN
+	CREATE TABLE Chofer(
+	  Id INT PRIMARY KEY IDENTITY(1,1),
+	  Nombre VARCHAR(100) NOT NULL,
+	  ApellidoPaterno VARCHAR(100) NOT NULL,
+	  ApellidoMaterno VARCHAR(100) NOT NULL,
+	  Licencia VARCHAR(50) UNIQUE NOT NULL,
+	  Telefono VARCHAR(20) NOT NULL,
+	  Disponibilidad BIT NOT NULL
+	);
+END
+ELSE
+BEGIN
+	PRINT 'The table already exists'
+END;
+
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Camion' AND TABLE_SCHEMA = 'dbo')
+BEGIN
+	CREATE TABLE Camion(
+		Id INT PRIMARY KEY IDENTITY(1,1),
+		Tipo INT NOT NULL,
+		Matricula VARCHAR(50) UNIQUE NOT NULL,
+		Modelo INT NOT NULL,
+		Marca VARCHAR(50) NOT NULL,
+		Disponibilidad BIT NOT NULL,
+		Kilometraje FLOAT NOT NULL,
+		UrlFoto VARCHAR(100) NOT NULL
+	);
+END
+ELSE
+BEGIN
+	PRINT 'The table already exists'
+END
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Ruta' AND TABLE_SCHEMA = 'dbo')
+BEGIN
+CREATE TABLE Ruta(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Origen VARCHAR(200) NOT NULL,
+	Destino VARCHAR(200) NOT NULL,
+	FechaSalida DATETIME NOT NULL,
+	FechaLlegada DATETIME NOT NULL,
+	FechaRegistro DATETIME NOT NULL,
+	ATiempo BIT NOT NULL,
+	Distancia FLOAT NOT NULL,
+	IdCamion INT, --FOREIGN KEY
+	IdChofer INT, --FOREIGN KEY
+	CONSTRAINT fk_Ruta_Camion FOREIGN KEY(IdCamion)
+		REFERENCES Camion(Id)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT fk_Ruta_Chofer FOREIGN KEY(IdChofer)
+		REFERENCES Chofer(Id)
+		ON DELETE NO ACTION
+		ON UPDATE CASCADE
+
+);
+END
+ELSE
+BEGIN
+	PRINT 'The table already exists'
+END
+
+
+/*
+• 	 ON DELETE CASCADE → if a camion or chofer are deleted, all their rutas are deleted automatically.
+• 	 ON UPDATE CASCADE → if a camion or chofer ID changes, it updates in the ruta table too.
+	Why it matters
+	Foreign keys prevent “orphaned” records and keep your database consistent. They’re the backbone of relational design.
+*/
