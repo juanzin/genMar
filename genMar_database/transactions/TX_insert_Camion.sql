@@ -6,8 +6,8 @@ BEGIN TRY
 	VALUES(100, 'MX001', 2020, 'Toyota', 1, 950.5, 'https://www.photos.com/camion1.png'),
 		(200, 'MX002', 2010, 'Chevrolet', 0, 10, 'https://www.photos.com/camion2.png'),
 		(100, 'MX003', 2000, 'Volswagen', 1, 40, 'https://www.photos.com/camion3.png'),
-		(100, 'MX004', 2025, 'Mercedes', 1, 50000, 'https://www.photos.com/camion4.png'),
-		(300, 'MX005', 2026, 'Mercedes', 0, 7000, 'https://www.photos.com/camion5.png')
+		(100, 'MX015', 2025, 'Mercedes', 1, 50000, 'https://www.photos.com/camion4.png'),
+		(300, 'MX021', 2026, 'Mercedes', 0, 7000, 'https://www.photos.com/camion5.png')
 	
 	COMMIT TRANSACTION;
 END TRY 
