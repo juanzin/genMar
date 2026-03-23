@@ -11,4 +11,4 @@ END
 
 
 --execution
-EXEC SP_update_camion 1, 0;
+EXEC SP_update_camion 8, 0;

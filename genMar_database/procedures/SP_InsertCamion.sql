@@ -16,7 +16,7 @@ BEGIN
 END;
 
 -- procedure execution
-EXEC SP_insert_camion 100, 'MX013', 1998, 'ABS', 1, 1550, 'https://www.photos.com/camionABS.png';
+EXEC SP_insert_camion 100, 'MX020', 1998, 'ABS', 1, 4000, 'https://www.photos.com/camionABS2.png';
 
 
 --NOTES

@@ -17,7 +17,7 @@ END;
 
 ---execution
 
-EXEC SP_Insert_chofer 'Arturo', 'Martinez', 'Gomez', 'LS-P010', '8811245665', 0;
+EXEC SP_Insert_chofer 'Pepe', 'Lucas', 'Gomez', 'LS-P020', '8811245800', 1;
 
 
 --NOTES

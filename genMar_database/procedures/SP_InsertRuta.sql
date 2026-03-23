@@ -19,4 +19,4 @@ END
 
 
 --Execution
-EXEC SP_insert_ruta 'Cordoba', 'Tamaulipas', '2026-01-15 08:30:00', '2026-01-26 11:30:00', '2026-01-20 10:00:00', 1, 500, 2, 4
+EXEC SP_insert_ruta 'Colima', 'Tamaulipas', '2026-01-15 08:30:00', '2026-01-26 11:30:00', '2026-01-20 10:00:00', 1, 930, 4, 2

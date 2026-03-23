@@ -66,6 +66,61 @@ BEGIN
 END
 
 
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'ChangeLogCamion' AND TABLE_SCHEMA = 'dbo')
+BEGIN
+CREATE TABLE ChangeLogCamion(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Actionn VARCHAR(20),
+	IdCamion INT, --FOREIGN KEY
+	ChangedAt DATETIME DEFAULT GETDATE()
+	CONSTRAINT fk_ChangeLogCamion_Camion FOREIGN KEY(IdCamion)
+		REFERENCES Camion(Id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+END
+ELSE
+BEGIN
+	PRINT 'The table already exists'
+END
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'ChangeLogRuta' AND TABLE_SCHEMA = 'dbo')
+BEGIN
+CREATE TABLE ChangeLogRuta(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Actionn VARCHAR(20),
+	IdRuta INT, --FOREIGN KEY
+	ChangedAt DATETIME DEFAULT GETDATE()
+	CONSTRAINT fk_ChangeLogRuta_Ruta FOREIGN KEY(IdRuta)
+		REFERENCES Ruta(Id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+END
+ELSE
+BEGIN
+	PRINT 'The table already exists'
+END
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'ChangeLogChofer' AND TABLE_SCHEMA = 'dbo')
+BEGIN
+CREATE TABLE ChangeLogChofer(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Actionn VARCHAR(20),
+	IdChofer INT, --FOREIGN KEY
+	ChangedAt DATETIME DEFAULT GETDATE()
+	CONSTRAINT fk_ChangeLogChofer_Chofer FOREIGN KEY(IdChofer)
+		REFERENCES Camion(Id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+END
+ELSE
+BEGIN
+	PRINT 'The table already exists'
+END
+
+
 /*
 • 	 ON DELETE CASCADE → if a camion or chofer are deleted, all their rutas are deleted automatically.
 • 	 ON UPDATE CASCADE → if a camion or chofer ID changes, it updates in the ruta table too.
