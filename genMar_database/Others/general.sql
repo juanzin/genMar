@@ -1,0 +1,28 @@
+use company;
+
+DELETE FROM Ruta WHERE Id = 11;
+
+SELECT *
+FROM Ruta
+
+CREATE TABLE ChangeLogCamion(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Actionn VARCHAR(20),
+	IdCamion INT, --FOREIGN KEY
+	ChangedAt DATETIME DEFAULT GETDATE()
+	CONSTRAINT fk_ChangeLogCamion_Camion FOREIGN KEY(IdCamion)
+		REFERENCES Camion(Id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+
+SELECT * FROM ChangeLogCamion;
+SELECT * FROM ChangeLogChofer;
+SELECT * FROM ChangeLogRuta;
+
+SELECT * FROM Ruta;
+SELECT * FROM Camion;
+SELECT * FROM Chofer;
+
+
+DROP TABLE ChangeLogChofer;
