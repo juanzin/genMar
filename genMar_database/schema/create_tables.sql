@@ -1,3 +1,13 @@
+/*
+Script: create_tables.sql
+Author: Juan Onofre
+Jira: https://juanzin.atlassian.net/browse/BLUE-54
+Branch: https://github.com/juanzin/genMar/tree/FT/BLUE-54-SQL
+Date: 2026-03-22
+Purpose: create tables chofer, camion, ruta, changeLogCamion, changeLogChofer, changeLogRuta.
+Dependencies: None
+*/
+
 USE	 company;
 
 IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Chofer' AND TABLE_SCHEMA = 'dbo')
