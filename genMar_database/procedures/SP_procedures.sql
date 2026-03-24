@@ -66,7 +66,7 @@ BEGIN
 
 	SELECT SCOPE_IDENTITY() AS newRuta
 END
-
+GO;
 --Insert chofer
 CREATE OR ALTER PROCEDURE SP_Insert_chofer(
 	@Nombre VARCHAR(100),
@@ -83,7 +83,7 @@ BEGIN
 
 	SELECT SCOPE_IDENTITY() AS newChofer
 END;
-
+GO;
 --Insert camion
 CREATE OR ALTER PROCEDURE SP_insert_camion
 	@Tipo INT,
@@ -101,7 +101,7 @@ BEGIN
 	--SELECT @@IDENTITY AS nuevoCamion; --avoid to use @@IDENTITY
 	SELECT SCOPE_IDENTITY() AS nuevoCamion;
 END;
-
+GO;
 --Delete ruta
 CREATE OR ALTER PROCEDURE SP_Delete_Ruta(
 	@IdRuta INT
@@ -112,7 +112,7 @@ BEGIN
 	FROM Ruta
 	WHERE Id = @IdRuta;
 END
-
+GO;
 --Delete chofer
 CREATE OR ALTER PROCEDURE SP_Delete_chofer(
 	@IdChofer INT
@@ -126,7 +126,7 @@ AS BEGIN
   FROM Chofer
   WHERE Id = @IdChofer
 END
-
+GO;
 --Delete camion
 CREATE OR ALTER PROCEDURE SP_Delete_Camion(
 	@IdCamion INT
@@ -139,7 +139,7 @@ AS BEGIN
 	FROM Camion
 	WHERE Id = @IdCamion
 END
-
+GO;
 --execution
 EXEC SP_Update_Ruta 7, '2026-03-01 06:00:00', '2026-03-02 03:20:00';
 EXEC SP_Update_Chofer 2, 1;
