@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* Estilos generales */ 
 * {
   margin: 0;
   padding: 0;
@@ -124,4 +124,16 @@ label {
   .currency-selector {
     width: 100%;
   }
+}
+
+.arrows {
+  font-size: 24px;
+  color: #94a3b8; /* soft gray */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.arrows:hover {
+  color: #38bdf8; /* blue accent */
+  transform: scale(1.1);
 }
