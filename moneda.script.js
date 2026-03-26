@@ -45,13 +45,14 @@ async function getExchangeData(_amount, _currencyFrom, _currencyTo) {
 		if (data.result === 'success') {
 			var rate = data.conversion_rates[_currencyTo];
 			var convertedAmount = (_amount * rate).toFixed(2);
+			$('#result').removeClass('error');
 			displayExchange(_amount, convertedAmount, _currencyFrom, _currencyTo);
 		} else {
-			displayError();
+			displayError("The server did not response");
 			// resultDiv.textContent = 'Error al obtener las tasas de cambio.';
 		}
 	} catch (error) {
-			displayError();
+			displayError("The server did not response");
 		// resultDiv.textContent = 'Error al conectar con la API.';
 	}
 
@@ -65,7 +66,12 @@ function convertMoney(){
 	var moneyFrom =  $('#currencyFrom').val();
 	var moneyTo =  $('#currencyTo').val();
 	var amount = $('#amount').val();
-	getExchangeData(amount, moneyFrom, moneyTo);
+
+	if (amount !== "") {
+		getExchangeData(amount, moneyFrom, moneyTo);
+	} else {
+		displayError("The amount was not provided");
+	}
 }
 
 function displayExchange(_amount, _value, _currencyFrom, _currencyTo) {
@@ -73,8 +79,9 @@ function displayExchange(_amount, _value, _currencyFrom, _currencyTo) {
 	$('#result').text(text);
 }
 
-function displayError() {
-	$('#result').text('No converted');
+function displayError(_message) {
+	$('#result').text(_message);
+	$('#result').addClass('error');
 }
 
 function InitTypesMoney() {

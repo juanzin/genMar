@@ -1,139 +1,130 @@
-/* Estilos generales */ 
+/* General Reset and Font */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; /* matches your interest in modern UI */
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #cfd9df);
+  background-color: #0f172a; /* Deep dark blue-black */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: #f1f5f9;
 }
 
 .container {
+  background-color: #1e293b; /* Dark card color */
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   text-align: center;
-  background: linear-gradient(135deg, #ffffff, #f7f7f7);
-  padding: 50px;
-  border-radius: 30px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  max-width: 500px;
   width: 100%;
+  max-width: 450px;
 }
 
 .icon {
-  color: #f39c12;
-  margin-bottom: 20px;
+  color: #fbbf24; /* Golden coin color */
+  margin-bottom: 1rem;
 }
 
 .title {
-  color: #34495e;
-  font-size: 2.5rem;
-  margin-bottom: 25px;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #f8fafc;
 }
 
-.converter {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
+/* Input Styles */
 .input-amount {
-  padding: 15px;
-  font-size: 1.2rem;
-  border: 2px solid #ddd;
-  border-radius: 15px;
   width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #334155;
+  border-radius: 10px;
+  background-color: #0f172a;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
   outline: none;
-  background-color: #f7f9fa;
-  transition: border 0.3s ease, background-color 0.3s ease;
+  transition: border-color 0.3s;
 }
 
 .input-amount:focus {
-  border-color: #3498db;
-  background-color: #eaf4fc;
+  border-color: #38bdf8; /* Highlight blue */
 }
 
+/* Selectors Alignment */
 .currency-selectors {
   display: flex;
+  align-items: center; /* Vertical alignment */
   justify-content: space-between;
-  gap: 15px;
+  gap: 10px;
+  margin-bottom: 2rem;
 }
 
 .currency-selector {
-  width: 48%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  max-width: 165px;
 }
 
-label {
-  font-size: 1.1rem;
-  color: #7f8c8d;
-  margin-bottom: 10px;
-  display: inline-block;
+.currency-selector label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .select {
-  width: 100%;
-  padding: 12px;
-  font-size: 1.1rem;
-  border-radius: 15px;
-  border: 2px solid #ddd;
-  background-color: #f7f9fa;
-  outline: none;
-  transition: border 0.3s ease, background-color 0.3s ease;
-}
-
-.select:focus {
-  border-color: #2ecc71;
-  background-color: #eafff5;
-}
-
-/* Botón en azul elegante */
-.convert-btn {
-  background-color: #2c3e50;
-  color: #fff;
-  font-size: 1.3rem;
-  padding: 15px;
-  border: none;
-  border-radius: 20px;
+  padding: 10px;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.convert-btn:hover {
-  background-color: #34495e;
-  transform: scale(1.05);
-}
-
-.result {
-  margin-top: 25px;
-  font-size: 1.7rem;
-  color: #333;
-  font-weight: 600;
-}
-
-@media (max-width: 400px) {
-  .currency-selectors {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .currency-selector {
-    width: 100%;
-  }
 }
 
 .arrows {
-  font-size: 24px;
-  color: #94a3b8; /* soft gray */
+  font-size: 1.2rem;
+  color: #38bdf8;
+  margin-top: 1.5rem; /* Pushes arrows down to align with select boxes */
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s;
 }
 
 .arrows:hover {
-  color: #38bdf8; /* blue accent */
-  transform: scale(1.1);
+  transform: scale(1.2);
+}
+
+/* Button & Result */
+.convert-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #38bdf8;
+  border: none;
+  border-radius: 10px;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.convert-btn:hover {
+  background-color: #0ea5e9;
+}
+
+.result {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4ade80; /* Success green for the result */
+}
+
+.error {
+  color: red;
 }
