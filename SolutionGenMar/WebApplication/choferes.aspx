@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="camiones.aspx.cs" Inherits="WebApplication.camiones" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="choferes.aspx.cs" Inherits="WebApplication.choferes" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -185,7 +185,7 @@
                 <asp:Label ID="lblMensaje" runat="server"></asp:Label>
             </asp:Panel>
             <div class="data-container">
-                <asp:GridView ID="GridMostrarChoferes" runat="server"
+                <asp:GridView ID="GridMostrarData" runat="server"
                     CssClass="gridview"
                     AutoGenerateColumns="False"
                     EmptyDataText="No se encontraron camiones registrados"
@@ -216,59 +216,59 @@
 
                     <div class="item">
                         <label>Apellido paterno: </label>
-                        <asp:TextBox ID="inputTipo" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="inputApellidoPaterno" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
                         <label>Apellido materno: </label>
-                        <asp:TextBox ID="inputModelo" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="inputApellidoMaterno" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <label>Marca: </label>
-                        <asp:TextBox ID="inputMarca" runat="server"></asp:TextBox>
+                        <label>Licencia: </label>
+                        <asp:TextBox ID="inputLicencia" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <label>Kilometraje: </label>
-                        <asp:TextBox ID="inputKilometraje" runat="server"></asp:TextBox>
+                        <label>Telefono: </label>
+                        <asp:TextBox ID="inputTelefono" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <label>UrlFoto: </label>
-                        <asp:TextBox ID="inputUrlFoto" runat="server"></asp:TextBox>
+                        <label>Disponibilidad: </label>
+                        <asp:TextBox ID="inputDisponibilidad" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                       <asp:Button ID="guardar" runat="server" Text="Guardar camion" OnClick="OnClickGuardar" />
+                       <asp:Button ID="guardar" runat="server" Text="Guardar chofer" OnClick="OnClickGuardar" />
                     </div>
 
                 </div>
 
                 <!-- eliminar -->
                 <div id="eliminarObjeto" runat="server">
-                    <div class="item"> Eliminar camion</div>
+                    <div class="item"> Eliminar chofer</div>
                     <div class="item">
-                        <label>Ingrese Id de camion: </label>
-                        <asp:TextBox ID="deleteCamion" runat="server"></asp:TextBox>
+                        <label>Ingrese Id de chofer: </label>
+                        <asp:TextBox ID="deleteChofer" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <asp:Button ID="buttonEliminar" runat="server" Text="Eliminar camion" OnClick="OnClickEliminar" />
+                        <asp:Button ID="buttonEliminar" runat="server" Text="Eliminar chofer" OnClick="OnClickEliminar" />
                     </div>
                 </div>
 
                 <!-- buscar -->
                 <div id="buscarObjeto" runat="server">
                     
-                    <div class="item">Buscar camion</div>
+                    <div class="item">Buscar chofer</div>
                     <div class="item">
-                        <label>Ingrese Id de camion: </label>
+                        <label>Ingrese Id de chofer: </label>
                         <asp:TextBox ID="inputBuscar" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <asp:Button ID="buttonBuscar" runat="server" Text="Buscar camion" OnClick="OnClickBuscar" />
+                        <asp:Button ID="buttonBuscar" runat="server" Text="Buscar chofer" OnClick="OnClickBuscar" />
                     </div>
 
                     <asp:GridView ID="GridViewBuscar" runat="server"
@@ -277,14 +277,14 @@
                         EmptyDataText="No se encontraron camiones registrados"
                         GridLines="None">
                         <Columns>
+                  
                             <asp:BoundField DataField="Id" HeaderText="ID" />
-                            <asp:BoundField DataField="Matricula" HeaderText="Matrícula" />
-                            <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
-                            <asp:BoundField DataField="Modelo" HeaderText="Modelo" />
-                            <asp:BoundField DataField="Marca" HeaderText="Marca" />
-                            <asp:BoundField DataField="Kilometraje" HeaderText="Kilometraje" DataFormatString="{0:N2}" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                            <asp:BoundField DataField="ApellidoPaterno" HeaderText="Paterno" />
+                            <asp:BoundField DataField="ApellidoMaterno" HeaderText="Materno" />
+                            <asp:BoundField DataField="Licencia" HeaderText="Licencia" />
+                            <asp:BoundField DataField="Telefono" HeaderText="Telefono" DataFormatString="{0:N2}" />
                             <asp:BoundField DataField="Disponibilidad" HeaderText="Disponibilidad" DataFormatString="{0:N0}" />
-                            <asp:BoundField DataField="UrlFoto" HeaderText="Url foto" DataFormatString="{0:N0}" />
                      
                         </Columns>
                     </asp:GridView>
@@ -296,4 +296,4 @@
         </div>
     </form>
 </body>
-</html>
+</html>--%>

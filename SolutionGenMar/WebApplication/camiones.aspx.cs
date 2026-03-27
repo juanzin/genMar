@@ -18,7 +18,7 @@ namespace WebApplication
 
                 // CargaCamiones();
                 buscarObjeto.Visible = false;
-                GridMostrarCamiones.Visible = false;
+                GridMostrarData.Visible = false;
                 agregarObjecto.Visible = false;
                 eliminarObjeto.Visible = false;
             }
@@ -58,11 +58,11 @@ namespace WebApplication
         public void OnClickMostrar(object sender, EventArgs e) {
             // CargaCamiones();
             List<E_camion> camiones = camion.DisplayCamiones();
-            GridMostrarCamiones.DataSource = camiones;
-            GridMostrarCamiones.DataBind();
+            GridMostrarData.DataSource = camiones;
+            GridMostrarData.DataBind();
 
             buscarObjeto.Visible = false;
-            GridMostrarCamiones.Visible = true;
+            GridMostrarData.Visible = true;
             agregarObjecto.Visible = false;
             eliminarObjeto.Visible = false;
 
@@ -73,7 +73,7 @@ namespace WebApplication
             //ddlFiltro.SelectedIndex = 0;
             //CargaCamiones();
             buscarObjeto.Visible = false;
-            GridMostrarCamiones.Visible = false;
+            GridMostrarData.Visible = false;
             agregarObjecto.Visible = true;
             eliminarObjeto.Visible = false;
 
@@ -84,7 +84,7 @@ namespace WebApplication
             //lblMensaje.Text = mensaje;
             //pnlMensaje.CssClass = "info-mensaje " + tipo;
             buscarObjeto.Visible = false;
-            GridMostrarCamiones.Visible = false;
+            GridMostrarData.Visible = false;
             agregarObjecto.Visible = false;
             eliminarObjeto.Visible = true;
 
@@ -95,7 +95,7 @@ namespace WebApplication
             //ddlFiltro.SelectedIndex = 0;
             //CargaCamiones();
             buscarObjeto.Visible = true;
-            GridMostrarCamiones.Visible = false;
+            GridMostrarData.Visible = false;
             agregarObjecto.Visible = false;
             eliminarObjeto.Visible=false;
         }

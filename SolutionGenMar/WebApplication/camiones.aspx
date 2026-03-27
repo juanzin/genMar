@@ -185,7 +185,7 @@
                 <asp:Label ID="lblMensaje" runat="server"></asp:Label>
             </asp:Panel>
             <div class="data-container">
-                <asp:GridView ID="GridMostrarCamiones" runat="server"
+                <asp:GridView ID="GridMostrarData" runat="server"
                     CssClass="gridview"
                     AutoGenerateColumns="False"
                     EmptyDataText="No se encontraron camiones registrados"

@@ -78,13 +78,13 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
-        /// GridMostrarChoferes control.
+        /// GridMostrarData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridMostrarChoferes;
+        protected global::System.Web.UI.WebControls.GridView GridMostrarData;
 
         /// <summary>
         /// agregarObjecto control.
@@ -102,10 +102,10 @@ namespace WebApplication
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputNombre;
+        protected global::System.Web.UI.WebControls.TextBox inputMatricula;
 
         /// <summary>
-        /// inputTipo control.
+        /// inputApellidoPaterno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -114,7 +114,7 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.TextBox inputTipo;
 
         /// <summary>
-        /// inputModelo control.
+        /// inputApellidoMaterno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -123,16 +123,7 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.TextBox inputModelo;
 
         /// <summary>
-        /// inputMarca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputMarca;
-
-        /// <summary>
-        /// inputKilometraje control.
+        /// inputLicencia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -141,13 +132,23 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.TextBox inputKilometraje;
 
         /// <summary>
-        /// inputUrlFoto control.
+        /// inputTelefono control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputMarca;
+
+        /// <summary>
+        /// inputDisponibilidad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputUrlFoto;
+        protected global::System.Web.UI.WebControls.TextBox deleteCamion;
 
         /// <summary>
         /// guardar control.
@@ -168,13 +169,13 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eliminarObjeto;
 
         /// <summary>
-        /// deleteCamion control.
+        /// deleteChofer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox deleteCamion;
+        protected global::System.Web.UI.WebControls.TextBox deleteChofer;
 
         /// <summary>
         /// buttonEliminar control.
