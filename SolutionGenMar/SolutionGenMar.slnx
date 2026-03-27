@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="BussinessLayer/BussinessLayer.csproj" Id="bb217918-85d4-4d80-90f7-21a28942d6b2" />
+  <Project Path="DataLayer/DataLayer.csproj" Id="8937823e-8eb3-4f64-95fe-50989909b75d" />
+  <Project Path="EntityLayer/EntityLayer.csproj" Id="c62526f9-b726-4c90-9bc5-be165ecb86d5" />
+  <Project Path="presentation/presentation.csproj" Id="fe47f0e1-60d0-43b4-b56e-17a0833134f3" />
+  <Project Path="WebApplication/WebApplication.csproj" Id="00e9ae13-14df-4f6d-9a69-736390ae5cf5" />
+</Solution>
