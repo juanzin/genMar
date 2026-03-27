@@ -78,8 +78,6 @@ C:\Users\Juan\Documents\TR-network\backend\SolutionGenMar\WebApplication\obj\Deb
 C:\Users\Juan\Documents\TR-network\backend\SolutionGenMar\WebApplication\obj\Debug\WebAppli.11721D13.Up2Date
 C:\Users\Juan\Documents\TR-network\backend\SolutionGenMar\WebApplication\obj\Debug\WebApplication.dll
 C:\Users\Juan\Documents\TR-network\backend\SolutionGenMar\WebApplication\obj\Debug\WebApplication.pdb
-C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\obj\Debug\WebApplication.csproj.AssemblyReference.cache
-C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\obj\Debug\WebApplication.csproj.CoreCompileInputs.cache
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\bin\WebApplication.dll.config
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\bin\WebApplication.dll
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\bin\WebApplication.pdb
@@ -155,6 +153,8 @@ C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\bin\Antlr3.Runtime.pdb
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\obj\Debug\WebApplication.csproj.AssemblyReference.cache
+C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\obj\Debug\WebApplication.csproj.CoreCompileInputs.cache
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\obj\Debug\WebAppli.11721D13.Up2Date
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\obj\Debug\WebApplication.dll
 C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\WebApplication\obj\Debug\WebApplication.pdb

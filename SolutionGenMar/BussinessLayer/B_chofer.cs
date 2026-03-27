@@ -23,7 +23,7 @@ namespace BussinessLayer
             return choferes;
         }
 
-        public bool InsertaChofer(string nombre, string paterno, string materno, string licencia, string telefono, bool disponibilidad)
+        public bool InsertaChofer(string nombre, string paterno, string materno, string licencia, string telefono, string disponibilidad)
         {
             bool response = false;
             int newDisponibilidad = 0;
@@ -35,9 +35,9 @@ namespace BussinessLayer
                 response = false;
             } else {
                 
-                if (disponibilidad) {
-                    newDisponibilidad = 1;
-                }
+                //if (Convert.ToBoolean(disponibilidad)) {
+                //    newDisponibilidad = 1;
+                //}
                 dataChofer.InsertaChofer(
                     new E_Chofer { 
                         Nombre = nombre,

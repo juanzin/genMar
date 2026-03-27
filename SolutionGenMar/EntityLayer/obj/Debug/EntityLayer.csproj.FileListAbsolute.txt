@@ -4,3 +4,9 @@ C:\Users\Juan\Documents\TR-network\backend\SolutionGenMar\EntityLayer\obj\Debug\
 C:\Users\Juan\Documents\TR-network\backend\SolutionGenMar\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
 C:\Users\Juan\Documents\TR-network\backend\SolutionGenMar\EntityLayer\obj\Debug\EntityLayer.dll
 C:\Users\Juan\Documents\TR-network\backend\SolutionGenMar\EntityLayer\obj\Debug\EntityLayer.pdb
+C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\EntityLayer\bin\Debug\EntityLayer.dll
+C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\EntityLayer\bin\Debug\EntityLayer.pdb
+C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\EntityLayer\obj\Debug\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\EntityLayer\obj\Debug\EntityLayer.dll
+C:\Users\Juan\Documents\TR-network\backend\genMar\SolutionGenMar\EntityLayer\obj\Debug\EntityLayer.pdb

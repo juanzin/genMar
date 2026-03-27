@@ -1,4 +1,4 @@
-﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="choferes.aspx.cs" Inherits="WebApplication.choferes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="choferes.aspx.cs" Inherits="WebApplication.choferes" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -148,7 +148,6 @@
                         <asp:ListItem Value="2">Buscar</asp:ListItem>
                     </asp:DropDownList>--%>
                     <div class="button">
-                        <%--<button>Mostrar todos</button>--%>
                         <asp:Button ID="MostrarTodos" runat="server" Text="Mostrar todos" OnClick="OnClickMostrar" />
                     </div>
                     <div class="button">
@@ -198,6 +197,7 @@
                         <asp:BoundField DataField="Licencia" HeaderText="Licencia" />
                         <asp:BoundField DataField="Telefono" HeaderText="Telefono" DataFormatString="{0:N2}" />
                         <asp:BoundField DataField="Disponibilidad" HeaderText="Disponibilidad" DataFormatString="{0:N0}" />
+                        
                         <%--<asp:TemplateField HeaderText="Estado">
                             <ItemTemplate>
                                 <span class='badge <%# (bool)Eval("Disponibilidad") ? "badge-success" : "badge-danger" %>'>
@@ -296,4 +296,4 @@
         </div>
     </form>
 </body>
-</html>--%>
+</html>
