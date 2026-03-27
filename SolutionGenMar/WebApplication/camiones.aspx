@@ -158,12 +158,12 @@
                     </div>
                     <div class="button">
                         <%--<button>Eliminar</button>--%>
-                        <asp:Button ID="Eliminar" runat="server" Text="Eliminar" OnClick="OnClickEliminar" />
+                        <asp:Button ID="Eliminar" runat="server" Text="Eliminar" OnClick="OnClickEliminarOption" />
 
                     </div>
                     <div class="button">
                         <%--<button>Buscar</button>--%>
-                        <asp:Button ID="Buscar" runat="server" Text="Buscar" OnClick="OnClickBuscar" />
+                        <asp:Button ID="Buscar" runat="server" Text="Buscar" OnClick="OnClickBuscarOption" />
 
                     </div>
                 </div>

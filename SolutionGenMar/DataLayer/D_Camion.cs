@@ -100,7 +100,7 @@ namespace DataLayer
             {
                 SqlCommand command = new SqlCommand("SP_Delete_Camion", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Id", Id);
+                command.Parameters.AddWithValue("@IdCamion", Id);
 
                 return command.ExecuteNonQuery() > 0;
             }
@@ -125,12 +125,12 @@ namespace DataLayer
         {
             using (SqlConnection conn = Conexion.GetConnection())
             {
-                SqlCommand command = new SqlCommand("get_camion_id", conn); // TODO
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Id", camionId);
+                SqlCommand command = new SqlCommand("SELECT * FROM Camion where Id = @camionId", conn); // TODO
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@camionId", camionId);
 
                 SqlDataReader reader = command.ExecuteReader();
-                
+
                 if (reader.Read())
                 {
                     return new E_camion

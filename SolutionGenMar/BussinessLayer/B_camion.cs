@@ -56,5 +56,33 @@ namespace BussinessLayer
 
             return response;
         }
+
+        public bool deleteCamion(string idCamion) {
+            bool response = false;
+
+            if (string.IsNullOrEmpty(idCamion)) {
+                return response;
+            }
+
+            response = true;
+            int id = Convert.ToInt32(idCamion);
+
+            response = DataCamion.EliminarCamion(id);
+
+            return response;
+        
+        }
+
+        public E_camion buscarCamion(string idCamion) {
+            // bool response = false;
+            E_camion response;
+
+            int id = Convert.ToInt32(idCamion);
+            response = DataCamion.ObtenerCamionPorID(id);
+            return response;
+        
+        }
+
+
     }
 }

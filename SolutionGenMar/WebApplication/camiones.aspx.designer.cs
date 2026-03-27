@@ -78,13 +78,13 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
-        /// GridMostrarCamiones control.
+        /// GridMostrarChoferes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridMostrarCamiones;
+        protected global::System.Web.UI.WebControls.GridView GridMostrarChoferes;
 
         /// <summary>
         /// agregarObjecto control.
@@ -96,13 +96,13 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl agregarObjecto;
 
         /// <summary>
-        /// inputMatricula control.
+        /// inputNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputMatricula;
+        protected global::System.Web.UI.WebControls.TextBox inputNombre;
 
         /// <summary>
         /// inputTipo control.

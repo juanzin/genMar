@@ -69,12 +69,40 @@ namespace WebApplication
         }
 
         public void OnClickAgregar(object sender, EventArgs e) {
+            /// SOLO OCULTA VISTAS
             //ddlFiltro.SelectedIndex = 0;
             //CargaCamiones();
             buscarObjeto.Visible = false;
             GridMostrarCamiones.Visible = false;
             agregarObjecto.Visible = true;
             eliminarObjeto.Visible = false;
+
+        }
+
+        public void OnClickEliminarOption(object sender, EventArgs e) {
+            //pnlMensaje.Visible = true;
+            //lblMensaje.Text = mensaje;
+            //pnlMensaje.CssClass = "info-mensaje " + tipo;
+            buscarObjeto.Visible = false;
+            GridMostrarCamiones.Visible = false;
+            agregarObjecto.Visible = false;
+            eliminarObjeto.Visible = true;
+
+        }
+
+        public void OnClickBuscarOption(object sender, EventArgs e)
+        {
+            //ddlFiltro.SelectedIndex = 0;
+            //CargaCamiones();
+            buscarObjeto.Visible = true;
+            GridMostrarCamiones.Visible = false;
+            agregarObjecto.Visible = false;
+            eliminarObjeto.Visible=false;
+        }
+
+        public void OnClickGuardar(object sender, EventArgs e)
+        {
+            // capturar datos y guardar
 
             string matricula = inputMatricula.Text;
             string tipo = inputTipo.Text;
@@ -87,14 +115,11 @@ namespace WebApplication
 
         }
 
-        public void OnClickEliminar(object sender, EventArgs e) {
-            //pnlMensaje.Visible = true;
-            //lblMensaje.Text = mensaje;
-            //pnlMensaje.CssClass = "info-mensaje " + tipo;
-            buscarObjeto.Visible = false;
-            GridMostrarCamiones.Visible = false;
-            agregarObjecto.Visible = false;
-            eliminarObjeto.Visible = true;
+        public void OnClickEliminar(object sender, EventArgs e)
+        {
+            // capturar y eliminar
+            string id = deleteCamion.Text;
+            camion.deleteCamion(id);
 
         }
 
@@ -102,17 +127,13 @@ namespace WebApplication
         {
             //ddlFiltro.SelectedIndex = 0;
             //CargaCamiones();
-            buscarObjeto.Visible = true;
-            GridMostrarCamiones.Visible = false;
-            agregarObjecto.Visible = false;
-            eliminarObjeto.Visible=false;
-        }
+            string id = inputBuscar.Text;
+            E_camion result = camion.buscarCamion(id);
+            List<E_camion> listCamions = new List<E_camion>();
+            listCamions.Add(result);
+            GridViewBuscar.DataSource = listCamions;
+            GridViewBuscar.DataBind();
 
-        public void OnClickGuardar(object sender, EventArgs e)
-        {
-            //ddlFiltro.SelectedIndex = 0;
-            //CargaCamiones();
-            
         }
     }
 }
