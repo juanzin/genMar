@@ -19,36 +19,34 @@ BEGIN
     SET FechaSalida = @NuevaFechaSalida,
         FechaLlegada = @NuevaFechaLlegada
     WHERE Id = @IdRuta;
-END;
+END
 GO
 
 --Update table Chofer
-CREATE OR ALTER PROCEDURE SP_Update_Chofer(
+CREATE OR ALTER PROCEDURE SP_Update_Chofer
 	@IdChofer INT,
 	@NuevaDisponibilidad BIT
-)
 AS BEGIN
 	UPDATE Chofer 
 	SET Disponibilidad = @NuevaDisponibilidad
 	WHERE Id = @IdChofer;
 END
-GO;
+GO
 
 --Update table Camion
-CREATE OR ALTER PROCEDURE SP_update_camion(
+CREATE OR ALTER PROCEDURE SP_update_camion
 	@idCamion INT,
 	@NuevaDisponibilidad BIT
-)
 AS BEGIN
 	UPDATE Camion
 	SET Disponibilidad = @NuevaDisponibilidad
 	WHERE Id = @idCamion;
 
 END
-GO;
+GO
 
 --Insert ruta
-CREATE OR ALTER PROCEDURE SP_insert_ruta(
+CREATE OR ALTER PROCEDURE SP_insert_ruta
 	@Origen VARCHAR(200),
 	@Destino VARCHAR(200),
 	@FechaSalida DATETIME,
@@ -58,7 +56,6 @@ CREATE OR ALTER PROCEDURE SP_insert_ruta(
 	@Distancia FLOAT,
 	@IdCamion INT,
 	@IdChofer INT
-)
 AS
 BEGIN
 	INSERT INTO Ruta(Origen, Destino, FechaSalida, FechaLlegada, FechaRegistro, ATiempo, Distancia, IdCamion, IdChofer)
@@ -66,24 +63,23 @@ BEGIN
 
 	SELECT SCOPE_IDENTITY() AS newRuta
 END
-GO;
+GO
 --Insert chofer
-CREATE OR ALTER PROCEDURE SP_Insert_chofer(
+CREATE OR ALTER PROCEDURE SP_Insert_chofer
 	@Nombre VARCHAR(100),
 	@ApellidoPaterno VARCHAR(100),
 	@ApellidoMaterno VARCHAR(100),
 	@Licencia VARCHAR(50),
 	@Telefono VARCHAR(20),
 	@Disponibilidad BIT
-)
 AS
 BEGIN
 	INSERT INTO Chofer(Nombre, ApellidoPaterno, ApellidoMaterno, Licencia, Telefono, Disponibilidad)
 	VALUES(@Nombre, @ApellidoPaterno, @ApellidoMaterno, @Licencia, @Telefono, @Disponibilidad)
 
 	SELECT SCOPE_IDENTITY() AS newChofer
-END;
-GO;
+END
+GO
 --Insert camion
 CREATE OR ALTER PROCEDURE SP_insert_camion
 	@Tipo INT,
@@ -100,23 +96,21 @@ BEGIN
 
 	--SELECT @@IDENTITY AS nuevoCamion; --avoid to use @@IDENTITY
 	SELECT SCOPE_IDENTITY() AS nuevoCamion;
-END;
-GO;
+END
+GO
 --Delete ruta
-CREATE OR ALTER PROCEDURE SP_Delete_Ruta(
+CREATE OR ALTER PROCEDURE SP_Delete_Ruta
 	@IdRuta INT
-)
 AS
 BEGIN
 	DELETE
 	FROM Ruta
 	WHERE Id = @IdRuta;
 END
-GO;
+GO
 --Delete chofer
-CREATE OR ALTER PROCEDURE SP_Delete_chofer(
+CREATE OR ALTER PROCEDURE SP_Delete_chofer
 	@IdChofer INT
-)
 AS BEGIN
   DELETE 
   FROM Ruta
@@ -126,11 +120,10 @@ AS BEGIN
   FROM Chofer
   WHERE Id = @IdChofer
 END
-GO;
+GO
 --Delete camion
-CREATE OR ALTER PROCEDURE SP_Delete_Camion(
+CREATE OR ALTER PROCEDURE SP_Delete_Camion
 	@IdCamion INT
-)
 AS BEGIN
 	DELETE FROM Ruta
 	WHERE IdCamion = @IdCamion;
@@ -139,7 +132,7 @@ AS BEGIN
 	FROM Camion
 	WHERE Id = @IdCamion
 END
-GO;
+GO
 --execution
 EXEC SP_Update_Ruta 7, '2026-03-01 06:00:00', '2026-03-02 03:20:00';
 EXEC SP_Update_Chofer 2, 1;
