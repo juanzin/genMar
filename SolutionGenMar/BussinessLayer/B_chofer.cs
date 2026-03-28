@@ -53,5 +53,34 @@ namespace BussinessLayer
 
             return response;
         }
+
+        public bool deleteChofer(string idChofer)
+        {
+            bool response = false;
+
+            if (string.IsNullOrEmpty(idChofer))
+            {
+                return response;
+            }
+
+            response = true;
+            int id = Convert.ToInt32(idChofer);
+
+            response = dataChofer.EliminarChofer(id);
+
+            return response;
+
+        }
+
+        public E_Chofer buscarChofer(string idChofer)
+        {
+            // bool response = false;
+            E_Chofer response;
+
+            int id = Convert.ToInt32(idChofer);
+            response = dataChofer.ObtenerChoferPorID(id);
+            return response;
+
+        }
     }
 }

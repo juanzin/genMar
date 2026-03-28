@@ -80,7 +80,11 @@ namespace WebApplication
             string telefono = inputTelefono.Text;
             string disponibilidad = inputDisponibilidad.Text;
 
-            chofer.InsertaChofer(nombre, materno, paterno, licencia, telefono, disponibilidad);
+            bool response = chofer.InsertaChofer(nombre, materno, paterno, licencia, telefono, disponibilidad);
+
+            if (response == false) {
+                Console.WriteLine("error to save");
+            }
 
         }
 
@@ -88,18 +92,20 @@ namespace WebApplication
         {
             // capturar y eliminar
             string id = deleteChofer.Text;
-            // chofer.deleteChofer(id);
+            chofer.deleteChofer(id);
 
         }
 
         public void OnClickBuscar(object sender, EventArgs e)
         {
+            // search to the database
             string id = inputBuscar.Text;
-            // E_camion result = chofer.buscarCamion(id);
-            List<E_camion> listCamions = new List<E_camion>();
-            // listCamions.Add(result);
-            // GridViewBuscar.DataSource = listCamions;
+            E_Chofer result = chofer.buscarChofer(id);
+            List<E_Chofer> listChoferes = new List<E_Chofer>();
+            listChoferes.Add(result);
+            GridViewBuscar.DataSource = listChoferes;
             GridViewBuscar.DataBind();
+            buscarObjeto.Visible = true;
 
         }
     }
