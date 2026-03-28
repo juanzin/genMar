@@ -105,10 +105,9 @@ namespace DataLayer
         {
             using (SqlConnection conn = Conexion.GetConnection())
             {
-                SqlCommand command = new SqlCommand("get_ruta_id", conn); // TODO
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Id", rutaId);
-
+                SqlCommand command = new SqlCommand("SELECT * FROM Ruta where Id = @rutaId", conn); // TODO
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@rutaId", rutaId);
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())

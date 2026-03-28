@@ -96,58 +96,85 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl agregarObjecto;
 
         /// <summary>
-        /// inputNombre control.
+        /// inputOrigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputNombre;
+        protected global::System.Web.UI.WebControls.TextBox inputOrigen;
 
         /// <summary>
-        /// inputApellidoPaterno control.
+        /// inputDestino control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputApellidoPaterno;
+        protected global::System.Web.UI.WebControls.TextBox inputDestino;
 
         /// <summary>
-        /// inputApellidoMaterno control.
+        /// inputFechaSalida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputApellidoMaterno;
+        protected global::System.Web.UI.WebControls.TextBox inputFechaSalida;
 
         /// <summary>
-        /// inputLicencia control.
+        /// inputFechaLlegada control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputLicencia;
+        protected global::System.Web.UI.WebControls.TextBox inputFechaLlegada;
 
         /// <summary>
-        /// inputTelefono control.
+        /// inputFechaRegistro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputTelefono;
+        protected global::System.Web.UI.WebControls.TextBox inputFechaRegistro;
 
         /// <summary>
-        /// inputDisponibilidad control.
+        /// inputATiempo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputDisponibilidad;
+        protected global::System.Web.UI.WebControls.TextBox inputATiempo;
+
+        /// <summary>
+        /// inputDistancia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputDistancia;
+
+        /// <summary>
+        /// inputIdChofer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputIdChofer;
+
+        /// <summary>
+        /// inputIdCamion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputIdCamion;
 
         /// <summary>
         /// guardar control.
@@ -168,13 +195,13 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eliminarObjeto;
 
         /// <summary>
-        /// deleteChofer control.
+        /// deleteRuta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox deleteChofer;
+        protected global::System.Web.UI.WebControls.TextBox deleteRuta;
 
         /// <summary>
         /// buttonEliminar control.

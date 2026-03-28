@@ -90,19 +90,19 @@ namespace DataLayer
             {
                 SqlCommand command = new SqlCommand("SP_Delete_chofer", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Id", Id);
+                command.Parameters.AddWithValue("@IdChofer", Id);
 
                 return command.ExecuteNonQuery() > 0;
             }
         }
 
-        public E_Chofer ObtenerCamionPorID(int camionId)
+        public E_Chofer ObtenerChoferPorID(int choferId)
         {
             using (SqlConnection conn = Conexion.GetConnection())
             {
-                SqlCommand command = new SqlCommand("get_camion_id", conn); // TODO
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Id", camionId);
+                SqlCommand command = new SqlCommand("SELECT * FROM Chofer where Id = @choferId", conn);
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@choferId", choferId);
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -111,7 +111,7 @@ namespace DataLayer
                     return new E_Chofer
                     {
                         Id = Convert.ToInt32(reader["Id"]),
-                        Nombre = reader["Matricula"].ToString(),
+                        Nombre = reader["Nombre"].ToString(),
                         ApellidoPaterno = reader["ApellidoPaterno"].ToString(),
                         ApellidoMaterno = reader["ApellidoPaterno"].ToString(),
                         Licencia = reader["Licencia"].ToString(),

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Gestión de choferes</title>
+    <title>Gestión de rutas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -135,7 +135,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
-            <h1>🚛 Gestión de choferes</h1>
+            <h1>🚛 Gestión de rutas</h1>
             
             <div class="menu-container">
 
@@ -187,16 +187,18 @@
                 <asp:GridView ID="GridMostrarData" runat="server"
                     CssClass="gridview"
                     AutoGenerateColumns="False"
-                    EmptyDataText="No se encontraron camiones registrados"
+                    EmptyDataText="No se encontraron rutas registradas"
                     GridLines="None">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" />
-                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="ApellidoPaterno" HeaderText="Paterno" />
-                        <asp:BoundField DataField="ApellidoMaterno" HeaderText="Materno" />
-                        <asp:BoundField DataField="Licencia" HeaderText="Licencia" />
-                        <asp:BoundField DataField="Telefono" HeaderText="Telefono" DataFormatString="{0:N2}" />
-                        <asp:BoundField DataField="Disponibilidad" HeaderText="Disponibilidad" DataFormatString="{0:N0}" />
+                        <asp:BoundField DataField="Origen" HeaderText="Origen" />
+                        <asp:BoundField DataField="Destino" HeaderText="Destino" />
+                        <asp:BoundField DataField="FechaSalida" HeaderText="FechaSalida" />
+                        <asp:BoundField DataField="FechaLlegada" HeaderText="FechaLlegada" />
+                        <asp:BoundField DataField="FechaRegistro" HeaderText="FechaRegistro" DataFormatString="{0:N2}" />
+                        <asp:BoundField DataField="ATiempo" HeaderText="ATiempo" DataFormatString="{0:N0}" />
+                        <asp:BoundField DataField="IdCamion" HeaderText="IdCamion" DataFormatString="{0:N0}" />
+                        <asp:BoundField DataField="IdChofer" HeaderText="IdChofer" DataFormatString="{0:N0}" />
                         
                         <%--<asp:TemplateField HeaderText="Estado">
                             <ItemTemplate>
@@ -210,33 +212,47 @@
                 <!-- agregar -->
                 <div id="agregarObjecto" class="inputs-container" runat="server">
                     <div class="item">
-                        <label>Nombre: </label>
-                        <asp:TextBox ID="inputNombre" runat="server"></asp:TextBox>
+                        <label>Origen: </label>
+                        <asp:TextBox ID="inputOrigen" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <label>Apellido paterno: </label>
-                        <asp:TextBox ID="inputApellidoPaterno" runat="server"></asp:TextBox>
+                        <label>Destino: </label>
+                        <asp:TextBox ID="inputDestino" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <label>Apellido materno: </label>
-                        <asp:TextBox ID="inputApellidoMaterno" runat="server"></asp:TextBox>
+                        <label>Fecha salida: </label>
+                        <asp:TextBox ID="inputFechaSalida" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <label>Licencia: </label>
-                        <asp:TextBox ID="inputLicencia" runat="server"></asp:TextBox>
+                        <label>Fecha llegada: </label>
+                        <asp:TextBox ID="inputFechaLlegada" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <label>Telefono: </label>
-                        <asp:TextBox ID="inputTelefono" runat="server"></asp:TextBox>
+                        <label>Fecha registro: </label>
+                        <asp:TextBox ID="inputFechaRegistro" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <label>Disponibilidad: </label>
-                        <asp:TextBox ID="inputDisponibilidad" runat="server"></asp:TextBox>
+                        <label>A tiempo: </label>
+                        <asp:TextBox ID="inputATiempo" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="item">
+                        <label>Distancia: </label>
+                        <asp:TextBox ID="inputDistancia" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="item">
+                        <label>Id Chofer: </label>
+                        <asp:TextBox ID="inputIdChofer" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="item">
+                        <label>Id Camion: </label>
+                        <asp:TextBox ID="inputIdCamion" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
@@ -250,7 +266,7 @@
                     <div class="item"> Eliminar chofer</div>
                     <div class="item">
                         <label>Ingrese Id de chofer: </label>
-                        <asp:TextBox ID="deleteChofer" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="deleteRuta" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
@@ -261,14 +277,14 @@
                 <!-- buscar -->
                 <div id="buscarObjeto" runat="server">
                     
-                    <div class="item">Buscar chofer</div>
+                    <div class="item">Buscar ruta</div>
                     <div class="item">
-                        <label>Ingrese Id de chofer: </label>
+                        <label>Ingrese Id de ruta: </label>
                         <asp:TextBox ID="inputBuscar" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="item">
-                        <asp:Button ID="buttonBuscar" runat="server" Text="Buscar chofer" OnClick="OnClickBuscar" />
+                        <asp:Button ID="buttonBuscar" runat="server" Text="Buscar ruta" OnClick="OnClickBuscar" />
                     </div>
 
                     <asp:GridView ID="GridViewBuscar" runat="server"
@@ -277,14 +293,16 @@
                         EmptyDataText="No se encontraron camiones registrados"
                         GridLines="None">
                         <Columns>
-                  
+
                             <asp:BoundField DataField="Id" HeaderText="ID" />
-                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                            <asp:BoundField DataField="ApellidoPaterno" HeaderText="Paterno" />
-                            <asp:BoundField DataField="ApellidoMaterno" HeaderText="Materno" />
-                            <asp:BoundField DataField="Licencia" HeaderText="Licencia" />
-                            <asp:BoundField DataField="Telefono" HeaderText="Telefono" DataFormatString="{0:N2}" />
-                            <asp:BoundField DataField="Disponibilidad" HeaderText="Disponibilidad" DataFormatString="{0:N0}" />
+                            <asp:BoundField DataField="Origen" HeaderText="Origen" />
+                            <asp:BoundField DataField="Destino" HeaderText="Destino" />
+                            <asp:BoundField DataField="FechaSalida" HeaderText="FechaSalida" />
+                            <asp:BoundField DataField="FechaLlegada" HeaderText="FechaLlegada" />
+                            <asp:BoundField DataField="FechaRegistro" HeaderText="FechaRegistro" DataFormatString="{0:N2}" />
+                            <asp:BoundField DataField="ATiempo" HeaderText="ATiempo" DataFormatString="{0:N0}" />
+                            <asp:BoundField DataField="IdCamion" HeaderText="IdCamion" DataFormatString="{0:N0}" />
+                            <asp:BoundField DataField="IdChofer" HeaderText="IdChofer" DataFormatString="{0:N0}" />
                      
                         </Columns>
                     </asp:GridView>
