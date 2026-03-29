@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="BussinessLayer/BussinessLayer.csproj" Id="c2692ff6-cf1d-4a0d-a3dc-5218c549a569" />
+  <Project Path="dataLayer/dataLayer.csproj" Id="c614312f-8a4b-4ba2-bc99-68632a35bd2b" />
+  <Project Path="EntityLayer/EntityLayer.csproj" Id="3ea0db13-d771-4f92-a7ea-869f8e041d6d" />
+  <Project Path="photographyWeb/photographyWeb.csproj" Id="16499993-d170-44b1-a937-40e1dcefee9b" />
+</Solution>
