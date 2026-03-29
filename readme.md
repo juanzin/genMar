@@ -1,1 +1,1 @@
-this is the first challange of vanilla js
+reference page: https://www.petermckinnon.com/places
