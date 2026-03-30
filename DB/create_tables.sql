@@ -21,7 +21,7 @@ CREATE TABLE Photographers(
 	Instagram VARCHAR(200) NOT NULL,
 	Facebook VARCHAR(200) NOT NULL,
 	Email VARCHAR(200) NOT NULL,
-	Biography VARCHAR(200) NOT NULL,
+	Biography VARCHAR(1000) NOT NULL,
 	Type_User INT NOT NULL,
 	CONSTRAINT fk_Users_TypeUsers FOREIGN KEY(Type_User)
 		REFERENCES TypeUsers(Id)
@@ -35,6 +35,7 @@ CREATE TABLE Photos(
 	Description VARCHAR(200),
 	Created_date DATETIME NOT NULL,
 	Photographer_Id INT NOT NULL,
+	Url_Photo VARCHAR(150) NOT NULL,
 	Category_Id INT NOT NULL,
 	CONSTRAINT fk_Photo_Category FOREIGN KEY(Category_Id)
 		REFERENCES Categories(Id)
