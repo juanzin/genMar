@@ -17,7 +17,16 @@ BEGIN
 END
 GO
 
+--get photographer information
+CREATE OR ALTER PROCEDURE Get_Photographer_info_for_about
+	@Id INT
+AS 
+BEGIN
+	SELECT Name, Biography, Instagram, Facebook FROM Photographers WHERE Id = @Id;
+END
+GO
 
+--add a new photographer
 CREATE OR ALTER PROCEDURE SP_Insert_Photographer
 	@Name VARCHAR(100),
 	@Materno VARCHAR(100),
@@ -36,6 +45,7 @@ BEGIN
 END 
 GO
 
+---update a photographer
 CREATE OR ALTER PROCEDURE SP_Update_Photographer
 	@Id INT,
 	@Username VARCHAR(100),
@@ -59,14 +69,14 @@ END
 GO
 
 
-----EXECUTION
+---- EXECUTIONS ---
 --getters
 EXEC Get_All_Photos;
 EXEC Get_All_Categories;
+EXEC Get_Photographer_info_for_about 1;
 
 --setters
 EXEC SP_Insert_Photographer 'Irving', 'Lopez', 'Martinez','Irving', 'memelas', 'https://www.instagram.com/kualtzin_photo/', 'https://www.facebook.com/', 'irvg@hotmail.com', 'soy chido', 1;
-
 --deletes
 
 

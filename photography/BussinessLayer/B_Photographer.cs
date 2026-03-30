@@ -3,6 +3,7 @@ using EntityLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace BussinessLayer
     {
         private D_Photographer DataPhotographer;
         private const int TYPE_USER = 1;
+        private const int USER_ID = 1;
         public B_Photographer()
         {
             this.DataPhotographer = new D_Photographer();
@@ -29,7 +31,7 @@ namespace BussinessLayer
                 || string.IsNullOrEmpty(facebook)
                 || string.IsNullOrEmpty(bio)) {
             } else { 
-                response = DataPhotographer.UpdateInfo(new E_Photographer { 
+                response = DataPhotographer.UpdateInfo(USER_ID, new E_Photographer {
                     Name = "",
                     Paterno = "",
                     Materno = "",
@@ -46,6 +48,19 @@ namespace BussinessLayer
 
 
             return response;
+        }
+
+        public E_Photographer getInfo() {
+            E_Photographer photographer = new E_Photographer();
+            try {
+                
+                photographer = DataPhotographer.GetPhotographer(USER_ID);
+
+                return photographer;
+              
+            } catch (Exception ex) {
+                throw new Exception("Error in the server: ", ex);
+            }
         }
     }
 }
