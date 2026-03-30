@@ -26,6 +26,7 @@ namespace dataLayer
                 cmd.Parameters.AddWithValue("@Instagram", photographer.Instagram);
                 cmd.Parameters.AddWithValue("@Facebook", photographer.Facebook);
                 cmd.Parameters.AddWithValue("@Email", photographer.Email);
+                cmd.Parameters.AddWithValue("@UrlFoto ", "https://www.myprofile.com");
                 cmd.Parameters.AddWithValue("@Biography", photographer.Biography);
 
                 response = cmd.ExecuteNonQuery() > 0;
