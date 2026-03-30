@@ -16,9 +16,9 @@
         <p class="subtitle">Professional Photographer</p>
 
         <nav class="navbar">
-            <a href="#" class="active">Portfolio</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="main.aspx" class="active">Portfolio</a>
+            <a href="about.aspx">About</a>
+            <a href="contact.aspx">Contact</a>
             <a href="#">Shop</a>
         </nav>
     </header>
