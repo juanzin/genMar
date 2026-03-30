@@ -6,14 +6,14 @@ VALUES('Photographer'),
 
 INSERT INTO Categories(Name)
 VALUES('Nature'),
-('Portrait')
+('portrait'),
+('animal'),
+('mexico'),
+('snapshots'),
+('unfreezing')
 
-INSERT INTO Places(Country, State, Name)
-VALUES('Mexico', 'Toluca', 'Nevado de Toluca'),
-('Mexico', 'Cholula', 'Campos de flor')
+INSERT INTO Photographers(Name, Materno, Paterno, Username, Password,Instagram, Facebook, Email, Biography, Type_User)
+VALUES('Juan', 'Onofre', 'Feliciano', 'Juanzin', 'fotitos', 'https://www.instagram.com/kualtzin_photo/', 'https://www.facebook.com/', 'juan_1020305060@hotmail.com', 'soy chido', 1)
 
-INSERT INTO Users(Name, Materno, Username, Password,Instagram, Facebook, Type_User)
-VALUES('Juan', 'Onofre', 'Juanzin', 'fotitos', 'https://www.instagram.com/kualtzin_photo/','https://www.facebook.com/', 1)
-
-INSERT INTO Photos(Title, Url_Photo, User_Id, Category_Id, Place_Id)
-VALUES('Amanecer', 'https://www.instagram.com/p/DDq5u1CxSpH/', 1, 1, 1)
+INSERT INTO Photos(Title, Description, Url_Photo, Created_date, Photographer_Id, Category_Id)
+VALUES('Amanecer','mi mejor foto', 'https://www.instagram.com/p/DDq5u1CxSpH/', GETDATE(), 1, 1)

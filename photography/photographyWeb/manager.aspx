@@ -11,10 +11,10 @@
 <body>
   <div class="page">
     <header class="topbar">
-      <div class="breadcrumb">Dashboard / Manage Account</div>
+      <div class="breadcrumb">Manage Account</div>
       <div class="user-box">
-        <span>Juan Pérez</span>
-        <div class="avatar">JP</div>
+        <span>Juan Onofre</span>
+        <div class="avatar">JO</div>
       </div>
     </header>
 
@@ -24,12 +24,12 @@
         <p>Upload photos, edit your contact details, and keep your portfolio up to date.</p>
       </div>
 
-      <nav class="nav">
+     <%-- <nav class="nav">
         <a href="#" class="active">Dashboard</a>
         <a href="#">Portfolio</a>
         <a href="#">Messages</a>
         <a href="#">Settings</a>
-      </nav>
+      </nav>--%>
     </section>
 
     <main class="layout">
@@ -149,7 +149,7 @@
         <form class="form">
           <div class="field">
             <label class="label"><span class="emoji">✉</span> Email Address</label>
-            <input type="email" placeholder="juan.perez@example.com" />
+            <input type="email" placeholder="name.lastname@example.com" />
           </div>
 
           <div class="field">
@@ -164,7 +164,7 @@
 
           <div class="field">
             <label class="label"><span class="emoji">◎</span> Instagram</label>
-            <input type="text" placeholder="@kualtzin_photo" />
+            <input type="text" placeholder="@instagramProfile" />
           </div>
 
           <div class="field">
