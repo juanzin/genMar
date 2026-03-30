@@ -37,5 +37,41 @@ namespace dataLayer
 
                 return photos;
         }
+
+        public List<E_Photo> getLocalPhotos()
+        {
+            List<E_Photo> photos = new List<E_Photo>();
+            photos.Add(new E_Photo
+            {
+                UrlPhoto = "images/snapshot.png",
+            });
+
+            photos.Add(new E_Photo
+            {
+                UrlPhoto = "images/mexico.png",
+            });
+
+            photos.Add(new E_Photo
+            {
+                UrlPhoto = "images/nature.png",
+            });
+
+            photos.Add(new E_Photo
+            {
+                UrlPhoto = "images/unfreezing.png",
+            });
+
+            photos.Add(new E_Photo
+            {
+                UrlPhoto = "images/portrait.png",
+            });
+
+            photos.Add(new E_Photo
+            {
+                UrlPhoto = "images/animal.png",
+            });
+
+            return photos;
+        }
     }
 }

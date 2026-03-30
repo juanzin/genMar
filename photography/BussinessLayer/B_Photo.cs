@@ -22,5 +22,12 @@ namespace BussinessLayer
             return photos;
         
         }
+
+        public List<E_Photo> getLocalPhotos() {
+            List<E_Photo> photos = new List<E_Photo>();
+            photos = photoData.getLocalPhotos();
+
+            return photos;
+        }
     }
 }
