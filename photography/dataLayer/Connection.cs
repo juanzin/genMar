@@ -10,7 +10,7 @@ namespace dataLayer
 {
     public class Connection
     {
-        private static string urlDatabase = "Server=BLUE;Database=photography;Trusted_Connection=True;";
+        private static string urlDatabase = "Server=(localdb)\\MSSQLLocalDB;Database=photography;Trusted_Connection=True;";
 
         public static SqlConnection GetConnection() {
 

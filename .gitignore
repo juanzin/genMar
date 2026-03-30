@@ -30,3 +30,6 @@ packages/
 
 node_modules/
 *.json
+
+# images
+images/
