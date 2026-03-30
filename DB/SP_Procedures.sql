@@ -38,31 +38,23 @@ GO
 
 CREATE OR ALTER PROCEDURE SP_Update_Photographer
 	@Id INT,
-	@Name VARCHAR(100),
-	@Materno VARCHAR(100),
-	@Paterno VARCHAR(100),	
 	@Username VARCHAR(100),
 	@Password VARCHAR(100),
 	@Instagram  VARCHAR(200),
 	@Facebook VARCHAR(200),
 	@Email VARCHAR(200),
-	@Biography VARCHAR(200),
-	@Type_User INT
+	@Biography VARCHAR(200)
 AS
 BEGIN
 	UPDATE Photographers
 	SET
-	Name = @Name,
-	Materno = @Materno,
-	Paterno = @Paterno,	
-	Username = @Username,
-	Password = @Password,
-	Instagram = @Instagram,
-	Facebook = @Facebook,
-	Email = @Email,
-	Biography = @Biography,
-	Type_User = @Type_User
-	WHERE Id = @Id
+		Username = @Username,
+		Password = @Password,
+		Instagram = @Instagram,
+		Facebook = @Facebook,
+		Email = @Email,
+		Biography = @Biography
+	WHERE Id = @Id;
 END 
 GO
 
@@ -73,10 +65,10 @@ EXEC Get_All_Photos;
 EXEC Get_All_Categories;
 
 --setters
-EXEC SP_Insert_Photographer 'Irving', 'Lopez', 'Martinez', 'Irving', 'memelas', 'https://www.instagram.com/kualtzin_photo/', 'https://www.facebook.com/', 'irvg@hotmail.com', 'soy chido', 1;
-EXEC SP_Update_Photographer 1, 'Irving', 'Lopez', 'Martinez', 'Mexican', 'montania', 'https://www.instagram.com/kualtzin_photo/', 'https://www.facebook.com/', 'irvg@hotmail.com', 'soy buen fotografo', 1;
+EXEC SP_Insert_Photographer 'Irving', 'Lopez', 'Martinez','Irving', 'memelas', 'https://www.instagram.com/kualtzin_photo/', 'https://www.facebook.com/', 'irvg@hotmail.com', 'soy chido', 1;
 
 --deletes
 
 
 --updates
+EXEC SP_Update_Photographer 1, 'Mexican', 'montania', 'https://www.instagram.com/kualtzin_photo/', 'https://www.facebook.com/', 'irvg@hotmail.com', 'soy buen fotografo';

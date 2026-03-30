@@ -9,12 +9,13 @@
    <link rel="stylesheet" href="Styles/managerStyles.css" />
 </head>
 <body>
+  <form id="form1" runat="server">
   <div class="page">
     <header class="topbar">
       <div class="breadcrumb">Manage Account</div>
       <div class="user-box">
-        <span>Juan Onofre</span>
-        <div class="avatar">JO</div>
+        <span ID="labelUsername" runat="server">Juan Onofre</span>
+        <div ID="labelAbreviationName" runat="server" class="avatar">JO</div>
       </div>
     </header>
 
@@ -145,38 +146,44 @@
 
       <aside class="panel">
         <h2 class="section-title">Contact Information</h2>
-
-        <form class="form">
+          <div class="field">
+            <label class="label"><span class="emoji">👤</span> Username</label>
+            <input id="inputUsername" runat="server" type="text" placeholder="Enter new username" />
+          </div>
           <div class="field">
             <label class="label"><span class="emoji">✉</span> Email Address</label>
-            <input type="email" placeholder="name.lastname@example.com" />
+            <input ID="inputEmail" runat="server" type="email" placeholder="name.lastname@example.com" />
           </div>
 
           <div class="field">
             <label class="label"><span class="emoji">☎</span> Phone Number</label>
-            <input type="text" placeholder="(123) 456-7890" />
+            <input ID="inputPhoneNumber" runat="server" type="text" placeholder="(+55) 2228654931" />
           </div>
 
           <div class="field">
             <label class="label"><span class="emoji">📍</span> Location</label>
-            <input type="text" placeholder="Puebla, Mexico" />
+            <input ID="inputLocation" runat="server" type="text" placeholder="Puebla, Mexico" />
           </div>
 
           <div class="field">
             <label class="label"><span class="emoji">◎</span> Instagram</label>
-            <input type="text" placeholder="@instagramProfile" />
+            <input id="inputInstagram" runat="server" type="text" placeholder="@instagramProfile" />
+          </div>
+          <div class="field">
+            <label class="label"><span class="emoji">📘</span> Facebook</label>
+            <input id="inputFacebook" runat="server" type="text" placeholder="@FacebookProfile" />
           </div>
 
           <div class="field">
             <label class="label"><span class="emoji">✎</span> Bio</label>
-            <textarea rows="5" placeholder="Landscape and cultural photographer based in Mexico."></textarea>
+            <textarea id="inputBio" runat="server" rows="5" placeholder="Landscape and cultural photographer based in Mexico."></textarea>
           </div>
 
-          <button type="submit" class="btn save-btn">Update Info</button>
-        </form>
+          <asp:Button runat="server" type="submit" class="btn save-btn" OnClick="onUpdateInfo" Text="Update info"/>
       </aside>
     </main>
-  </div>
+    </div>
+  </form>
 </body>
 </html>
 
