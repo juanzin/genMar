@@ -10,10 +10,10 @@ namespace EntityLayer
     public class E_Photo
     {
         public string Title { get; set; }
+        public string Description { get; set; }
         public string UrlPhoto { get; set; }
         public DateTime CreatedDate { get; set; }
-        public int UserId { get; set; }
+        public int PhotographerId { get; set; }
         public int CategoryId { get; set; }
-        public int PlaceId { get; set; }
     }
 }

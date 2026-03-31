@@ -17,7 +17,7 @@ namespace dataLayer
             List<E_Photo> photos = new List<E_Photo>();
 
             using (SqlConnection conn = Connection.GetConnection()) {
-                SqlCommand cmd = new SqlCommand("Get_All_Photos");
+                SqlCommand cmd = new SqlCommand("Get_All_Photos", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -25,11 +25,11 @@ namespace dataLayer
                     photos.Add(
                         new E_Photo { 
                             Title = reader["Title"].ToString(),
-                            UrlPhoto = reader["Url_Phto"].ToString(),
+                            Description = reader["Title"].ToString(),
+                            UrlPhoto = reader["Url_Photo"].ToString(),
                             CreatedDate = Convert.ToDateTime(reader["Created_date"]),
-                            UserId = Convert.ToInt32(reader["User_Id"]),
-                            CategoryId = Convert.ToInt32(reader["Category_Id"]),
-                            PlaceId = Convert.ToInt32(reader["Place_Id"]),
+                            PhotographerId = Convert.ToInt32(reader["Photographer_Id"]),
+                            CategoryId = Convert.ToInt32(reader["Category_Id"])
                         }
                      );                
                 }
