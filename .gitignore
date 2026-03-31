@@ -1,2 +1,35 @@
+# Build folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio folder
+.vs/
+
+# IIS Express
+.vs/
+*.iisExpress/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet packages (optional depending on config)
+packages/
+
+# Publish output
+*.publish.xml
+
 node_modules/
 *.json
+
+# images
+images/
