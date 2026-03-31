@@ -1,0 +1,36 @@
+framework: .NET frameowrk 4.8 
+
+patrón: MVC (Model View Controller)
+ORM: entity framework 6 (database first)
+base de datos: SQL server - servername
+
+
+actividades (steps)
+
+1. abre visual studio 
+2. buscar aplicación web asp.NET (.net framework)
+3. agregar nombre "projectname" (cuando es .NET framework 4.8)
+4. selecciona el MVC , de seactiva el HTTPS  y sin autenticación -> crear
+5. Revisar la estructura del proyecto, que tenga todas las carpetas(model, view, controller )
+6. Configurar entity framework (database first)
+7. click derecho sobre la solución y abrir "manage nuget packages"
+8. buscar EntityFramework6 e instalar
+9. recompilar
+10. abrir web.config y agregar stringConnection: connectionString="Data source=(localdb)\MSSQLLocalDB;Initial catalog=company;Integrated Security=True; TrustServerCertificate=True;" provideName="System.Data.SqlClient"
+
+11. crear modelos desde base de datos (database first)
+12. click derecho sobre la carperta models y despues -> new item -> ADO.NET entity model
+13. doble click sobre asistente de configuracion
+14. add new connection
+15. microsft sql server
+16. ver imagen donde aparace la config "origen de datos"
+17. probar conexión -> revisar que la cadena de conexión este bien, base de datos y servidor
+18. en la elección de objetos, escoger tablas, vistas, y funciones y procedimientos
+19. deberá de ver los (.edmx) en los models
+20. click derecho en models y agregar carpeta DTOs
+21. agregar clase camionDTO.cs
+
+
+22. Agregar controller -> click derecho -> agregar controlador MVC 5 with view, using entity framework sobre la carpeta controller
+23. revisar config de la ventana de add controller (NO ESCOGER DTO)
+
