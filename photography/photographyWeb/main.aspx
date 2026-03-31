@@ -25,7 +25,7 @@
 
     <main class="gallery">
         <div class="card">
-            <img src="images/snapshot.png" alt="Snapshots" />
+            <img id="ImgSnapshot" runat="server" alt="Snapshots" />
             <div class="card-overlay"></div>
             <div class="card-content">
                 <h2>Snapshots</h2>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="card">
-            <img src="images/mexico.png" alt="mexico" />
+            <img id="ImgMexico" runat="server" alt="mexico" />
             <div class="card-overlay"></div>
             <div class="card-content">
                 <h2>México</h2>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="card">
-            <img src="images/nature.png" alt="Nature" />
+            <img id="ImgNature" runat="server" alt="Nature" />
             <div class="card-overlay"></div>
             <div class="card-content">
                 <h2>Nature</h2>
@@ -52,7 +52,7 @@
         </div>
 
         <div class="card">
-            <img src="images/unfreezing.png" alt="Unfreezing Time" />
+            <img id="ImgUnfreezing" runat="server" alt="Unfreezing Time" />
             <div class="card-overlay"></div>
             <div class="card-content">
                 <h2>Unfreezing Time</h2>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="card">
-            <img src="images/portrait.png" alt="Portraits" />
+            <img id="ImgPortrait" runat="server" alt="Portraits" />
             <div class="card-overlay"></div>
             <div class="card-content">
                 <h2>Portraits</h2>
@@ -70,7 +70,7 @@
         </div>
 
         <div class="card">
-            <img src="images/animal.png" alt="Animals" />
+            <img id="ImgAnimal" runat="server" alt="Animals" />
             <div class="card-overlay"></div>
             <div class="card-content">
                 <h2>Animals</h2>
