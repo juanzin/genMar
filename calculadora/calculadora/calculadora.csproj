@@ -67,15 +67,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="basicCalculator.aspx" />
     <Content Include="calculadora.asmx" />
+    <Content Include="styles.css" />
     <Content Include="Web.config" />
+    <Content Include="IMCCalculator.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="basicCalculator.aspx.cs">
+      <DependentUpon>basicCalculator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="basicCalculator.aspx.designer.cs">
+      <DependentUpon>basicCalculator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="calculadora.asmx.cs">
       <DependentUpon>calculadora.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IMCCalculator.aspx.cs">
+      <DependentUpon>IMCCalculator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IMCCalculator.aspx.designer.cs">
+      <DependentUpon>IMCCalculator.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

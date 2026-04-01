@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
 using System.Web.Services;
 
 namespace calculadora
@@ -24,6 +25,7 @@ namespace calculadora
         }
 
         [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
         public double suma(double numero1, double numero2) {
 
             return numero1 + numero2;
@@ -43,6 +45,21 @@ namespace calculadora
         public double division(double numero1, double numero2) {
 
             return numero1 / numero2;
+        }
+
+        [WebMethod]
+        public double basicOperation(double numero1, double numero2, string operation)
+        {
+
+
+            return numero1 / numero2;
+        }
+
+        [WebMethod]
+        public double calculateIMC(double peso, double altura) { 
+            double imc = peso / (altura * altura);
+
+            return imc;
         }
     }
 }

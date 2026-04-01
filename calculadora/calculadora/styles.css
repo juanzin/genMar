@@ -1,0 +1,131 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+    /* Title */
+    .card h1 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+    .input-group label {
+        font-size: 14px;
+        color: #555;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+        transition: 0.3s;
+    }
+
+        .input-group input:focus {
+            border-color: #ff7e5f;
+        }
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+/* Result */
+.result {
+    margin-top: 20px;
+}
+
+    .result h2 {
+        margin: 10px 0;
+        color: #ff7e5f;
+    }
+
+.status {
+    font-weight: bold;
+    color: #555;
+}
+
+
+
+/* basic calculator css*/
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.calculator {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Inputs */
+input {
+    width: 90%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+/* Buttons */
+.buttons {
+    margin: 10px 0;
+}
+
+button {
+    width: 45px;
+    height: 40px;
+    margin: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
