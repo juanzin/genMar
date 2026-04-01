@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="companyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Camion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Matricula" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Modelo" Type="int" Nullable="false" />
+          <Property Name="Marca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disponibilidad" Type="bit" Nullable="false" />
+          <Property Name="Kilometraje" Type="float" Nullable="false" />
+          <Property Name="UrlFoto" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChangeLogCamion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Actionn" Type="varchar" MaxLength="20" />
+          <Property Name="IdCamion" Type="int" />
+          <Property Name="ChangedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ChangeLogChofer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Actionn" Type="varchar" MaxLength="20" />
+          <Property Name="IdChofer" Type="int" />
+          <Property Name="ChangedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ChangeLogRuta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Actionn" Type="varchar" MaxLength="20" />
+          <Property Name="IdRuta" Type="int" />
+          <Property Name="ChangedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Chofer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Licencia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Disponibilidad" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ruta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Origen" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Destino" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FechaSalida" Type="datetime" Nullable="false" />
+          <Property Name="FechaLlegada" Type="datetime" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="ATiempo" Type="bit" Nullable="false" />
+          <Property Name="Distancia" Type="float" Nullable="false" />
+          <Property Name="IdCamion" Type="int" />
+          <Property Name="IdChofer" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'company.dbo.ViewCamion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewCamion">
+          <Key>
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="Matricula" />
+            <PropertyRef Name="Disponibilidad" />
+          </Key>
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Matricula" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disponibilidad" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'company.dbo.ViewChofer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewChofer">
+          <Key>
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Licencia" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Licencia" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'company.dbo.ViewRuta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewRuta">
+          <Key>
+            <PropertyRef Name="Origen" />
+            <PropertyRef Name="Destino" />
+          </Key>
+          <Property Name="Origen" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Destino" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IdCamion" Type="int" />
+          <Property Name="IdChofer" Type="int" />
+        </EntityType>
+        <Association Name="fk_ChangeLogCamion_Camion">
+          <End Role="Camion" Type="Self.Camion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChangeLogCamion" Type="Self.ChangeLogCamion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Camion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChangeLogCamion">
+              <PropertyRef Name="IdCamion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ChangeLogChofer_Chofer">
+          <End Role="Camion" Type="Self.Camion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChangeLogChofer" Type="Self.ChangeLogChofer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Camion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChangeLogChofer">
+              <PropertyRef Name="IdChofer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ChangeLogRuta_Ruta">
+          <End Role="Ruta" Type="Self.Ruta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChangeLogRuta" Type="Self.ChangeLogRuta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ruta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChangeLogRuta">
+              <PropertyRef Name="IdRuta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ruta_Camion">
+          <End Role="Camion" Type="Self.Camion" Multiplicity="0..1" />
+          <End Role="Ruta" Type="Self.Ruta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Camion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ruta">
+              <PropertyRef Name="IdCamion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ruta_Chofer">
+          <End Role="Chofer" Type="Self.Chofer" Multiplicity="0..1" />
+          <End Role="Ruta" Type="Self.Ruta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chofer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ruta">
+              <PropertyRef Name="IdChofer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_Delete_Camion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCamion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Delete_chofer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdChofer" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Delete_Ruta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRuta" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_insert_camion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Tipo" Type="int" Mode="In" />
+          <Parameter Name="Matricula" Type="varchar" Mode="In" />
+          <Parameter Name="Modelo" Type="int" Mode="In" />
+          <Parameter Name="Marca" Type="varchar" Mode="In" />
+          <Parameter Name="Disponibilidad" Type="bit" Mode="In" />
+          <Parameter Name="Kilometraje" Type="float" Mode="In" />
+          <Parameter Name="UrlFoto" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_Insert_chofer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+          <Parameter Name="Licencia" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="Disponibilidad" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SP_insert_ruta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Origen" Type="varchar" Mode="In" />
+          <Parameter Name="Destino" Type="varchar" Mode="In" />
+          <Parameter Name="FechaSalida" Type="datetime" Mode="In" />
+          <Parameter Name="FechaLlegada" Type="datetime" Mode="In" />
+          <Parameter Name="FechaRegistro" Type="datetime" Mode="In" />
+          <Parameter Name="ATiempo" Type="bit" Mode="In" />
+          <Parameter Name="Distancia" Type="float" Mode="In" />
+          <Parameter Name="IdCamion" Type="int" Mode="In" />
+          <Parameter Name="IdChofer" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_update_camion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCamion" Type="int" Mode="In" />
+          <Parameter Name="NuevaDisponibilidad" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Chofer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdChofer" Type="int" Mode="In" />
+          <Parameter Name="NuevaDisponibilidad" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Ruta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRuta" Type="int" Mode="In" />
+          <Parameter Name="NuevaFechaSalida" Type="datetime" Mode="In" />
+          <Parameter Name="NuevaFechaLlegada" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="companyModelStoreContainer">
+          <EntitySet Name="Camion" EntityType="Self.Camion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChangeLogCamion" EntityType="Self.ChangeLogCamion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChangeLogChofer" EntityType="Self.ChangeLogChofer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChangeLogRuta" EntityType="Self.ChangeLogRuta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chofer" EntityType="Self.Chofer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ruta" EntityType="Self.Ruta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ViewCamion" EntityType="Self.ViewCamion" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewCamion].[Tipo] AS [Tipo], 
+    [ViewCamion].[Matricula] AS [Matricula], 
+    [ViewCamion].[Disponibilidad] AS [Disponibilidad]
+    FROM [dbo].[ViewCamion] AS [ViewCamion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewChofer" EntityType="Self.ViewChofer" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewChofer].[Nombre] AS [Nombre], 
+    [ViewChofer].[Telefono] AS [Telefono], 
+    [ViewChofer].[Licencia] AS [Licencia]
+    FROM [dbo].[ViewChofer] AS [ViewChofer]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewRuta" EntityType="Self.ViewRuta" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewRuta].[Origen] AS [Origen], 
+    [ViewRuta].[Destino] AS [Destino], 
+    [ViewRuta].[IdCamion] AS [IdCamion], 
+    [ViewRuta].[IdChofer] AS [IdChofer]
+    FROM [dbo].[ViewRuta] AS [ViewRuta]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_ChangeLogCamion_Camion" Association="Self.fk_ChangeLogCamion_Camion">
+            <End Role="Camion" EntitySet="Camion" />
+            <End Role="ChangeLogCamion" EntitySet="ChangeLogCamion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ChangeLogChofer_Chofer" Association="Self.fk_ChangeLogChofer_Chofer">
+            <End Role="Camion" EntitySet="Camion" />
+            <End Role="ChangeLogChofer" EntitySet="ChangeLogChofer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ChangeLogRuta_Ruta" Association="Self.fk_ChangeLogRuta_Ruta">
+            <End Role="Ruta" EntitySet="Ruta" />
+            <End Role="ChangeLogRuta" EntitySet="ChangeLogRuta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ruta_Camion" Association="Self.fk_Ruta_Camion">
+            <End Role="Camion" EntitySet="Camion" />
+            <End Role="Ruta" EntitySet="Ruta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ruta_Chofer" Association="Self.fk_Ruta_Chofer">
+            <End Role="Chofer" EntitySet="Chofer" />
+            <End Role="Ruta" EntitySet="Ruta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="companyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Camion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Modelo" Type="Int32" Nullable="false" />
+          <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Disponibilidad" Type="Boolean" Nullable="false" />
+          <Property Name="Kilometraje" Type="Double" Nullable="false" />
+          <Property Name="UrlFoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ChangeLogCamions" Relationship="Self.fk_ChangeLogCamion_Camion" FromRole="Camion" ToRole="ChangeLogCamion" />
+          <NavigationProperty Name="ChangeLogChofers" Relationship="Self.fk_ChangeLogChofer_Chofer" FromRole="Camion" ToRole="ChangeLogChofer" />
+          <NavigationProperty Name="Rutas" Relationship="Self.fk_Ruta_Camion" FromRole="Camion" ToRole="Ruta" />
+        </EntityType>
+        <EntityType Name="ChangeLogCamion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Actionn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdCamion" Type="Int32" />
+          <Property Name="ChangedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Camion" Relationship="Self.fk_ChangeLogCamion_Camion" FromRole="ChangeLogCamion" ToRole="Camion" />
+        </EntityType>
+        <EntityType Name="ChangeLogChofer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Actionn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdChofer" Type="Int32" />
+          <Property Name="ChangedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Camion" Relationship="Self.fk_ChangeLogChofer_Chofer" FromRole="ChangeLogChofer" ToRole="Camion" />
+        </EntityType>
+        <EntityType Name="ChangeLogRuta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Actionn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdRuta" Type="Int32" />
+          <Property Name="ChangedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Ruta" Relationship="Self.fk_ChangeLogRuta_Ruta" FromRole="ChangeLogRuta" ToRole="Ruta" />
+        </EntityType>
+        <EntityType Name="Chofer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Licencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Disponibilidad" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Rutas" Relationship="Self.fk_Ruta_Chofer" FromRole="Chofer" ToRole="Ruta" />
+        </EntityType>
+        <EntityType Name="Ruta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Origen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSalida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaLlegada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ATiempo" Type="Boolean" Nullable="false" />
+          <Property Name="Distancia" Type="Double" Nullable="false" />
+          <Property Name="IdCamion" Type="Int32" />
+          <Property Name="IdChofer" Type="Int32" />
+          <NavigationProperty Name="Camion" Relationship="Self.fk_Ruta_Camion" FromRole="Ruta" ToRole="Camion" />
+          <NavigationProperty Name="ChangeLogRutas" Relationship="Self.fk_ChangeLogRuta_Ruta" FromRole="Ruta" ToRole="ChangeLogRuta" />
+          <NavigationProperty Name="Chofer" Relationship="Self.fk_Ruta_Chofer" FromRole="Ruta" ToRole="Chofer" />
+        </EntityType>
+        <EntityType Name="ViewCamion">
+          <Key>
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="Matricula" />
+            <PropertyRef Name="Disponibilidad" />
+          </Key>
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Disponibilidad" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewChofer">
+          <Key>
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Licencia" />
+          </Key>
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Licencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewRuta">
+          <Key>
+            <PropertyRef Name="Origen" />
+            <PropertyRef Name="Destino" />
+          </Key>
+          <Property Name="Origen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdCamion" Type="Int32" />
+          <Property Name="IdChofer" Type="Int32" />
+        </EntityType>
+        <Association Name="fk_ChangeLogCamion_Camion">
+          <End Role="Camion" Type="Self.Camion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChangeLogCamion" Type="Self.ChangeLogCamion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Camion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChangeLogCamion">
+              <PropertyRef Name="IdCamion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ChangeLogChofer_Chofer">
+          <End Role="Camion" Type="Self.Camion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChangeLogChofer" Type="Self.ChangeLogChofer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Camion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChangeLogChofer">
+              <PropertyRef Name="IdChofer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ruta_Camion">
+          <End Role="Camion" Type="Self.Camion" Multiplicity="0..1" />
+          <End Role="Ruta" Type="Self.Ruta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Camion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ruta">
+              <PropertyRef Name="IdCamion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ChangeLogRuta_Ruta">
+          <End Role="Ruta" Type="Self.Ruta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChangeLogRuta" Type="Self.ChangeLogRuta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ruta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChangeLogRuta">
+              <PropertyRef Name="IdRuta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ruta_Chofer">
+          <End Role="Chofer" Type="Self.Chofer" Multiplicity="0..1" />
+          <End Role="Ruta" Type="Self.Ruta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chofer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ruta">
+              <PropertyRef Name="IdChofer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="companyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Camions" EntityType="Self.Camion" />
+          <EntitySet Name="ChangeLogCamions" EntityType="Self.ChangeLogCamion" />
+          <EntitySet Name="ChangeLogChofers" EntityType="Self.ChangeLogChofer" />
+          <EntitySet Name="ChangeLogRutas" EntityType="Self.ChangeLogRuta" />
+          <EntitySet Name="Chofers" EntityType="Self.Chofer" />
+          <EntitySet Name="Rutas" EntityType="Self.Ruta" />
+          <EntitySet Name="ViewCamions" EntityType="Self.ViewCamion" />
+          <EntitySet Name="ViewChofers" EntityType="Self.ViewChofer" />
+          <EntitySet Name="ViewRutas" EntityType="Self.ViewRuta" />
+          <AssociationSet Name="fk_ChangeLogCamion_Camion" Association="Self.fk_ChangeLogCamion_Camion">
+            <End Role="Camion" EntitySet="Camions" />
+            <End Role="ChangeLogCamion" EntitySet="ChangeLogCamions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ChangeLogChofer_Chofer" Association="Self.fk_ChangeLogChofer_Chofer">
+            <End Role="Camion" EntitySet="Camions" />
+            <End Role="ChangeLogChofer" EntitySet="ChangeLogChofers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ruta_Camion" Association="Self.fk_Ruta_Camion">
+            <End Role="Camion" EntitySet="Camions" />
+            <End Role="Ruta" EntitySet="Rutas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ChangeLogRuta_Ruta" Association="Self.fk_ChangeLogRuta_Ruta">
+            <End Role="Ruta" EntitySet="Rutas" />
+            <End Role="ChangeLogRuta" EntitySet="ChangeLogRutas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ruta_Chofer" Association="Self.fk_Ruta_Chofer">
+            <End Role="Chofer" EntitySet="Chofers" />
+            <End Role="Ruta" EntitySet="Rutas" />
+          </AssociationSet>
+          <FunctionImport Name="SP_Delete_Camion">
+            <Parameter Name="IdCamion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_chofer">
+            <Parameter Name="IdChofer" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Ruta">
+            <Parameter Name="IdRuta" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_insert_camion" ReturnType="Collection(Decimal)">
+            <Parameter Name="Tipo" Mode="In" Type="Int32" />
+            <Parameter Name="Matricula" Mode="In" Type="String" />
+            <Parameter Name="Modelo" Mode="In" Type="Int32" />
+            <Parameter Name="Marca" Mode="In" Type="String" />
+            <Parameter Name="Disponibilidad" Mode="In" Type="Boolean" />
+            <Parameter Name="Kilometraje" Mode="In" Type="Double" />
+            <Parameter Name="UrlFoto" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_chofer" ReturnType="Collection(Decimal)">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+            <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+            <Parameter Name="Licencia" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="Disponibilidad" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SP_insert_ruta" ReturnType="Collection(Decimal)">
+            <Parameter Name="Origen" Mode="In" Type="String" />
+            <Parameter Name="Destino" Mode="In" Type="String" />
+            <Parameter Name="FechaSalida" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaLlegada" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaRegistro" Mode="In" Type="DateTime" />
+            <Parameter Name="ATiempo" Mode="In" Type="Boolean" />
+            <Parameter Name="Distancia" Mode="In" Type="Double" />
+            <Parameter Name="IdCamion" Mode="In" Type="Int32" />
+            <Parameter Name="IdChofer" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_update_camion">
+            <Parameter Name="idCamion" Mode="In" Type="Int32" />
+            <Parameter Name="NuevaDisponibilidad" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Chofer">
+            <Parameter Name="IdChofer" Mode="In" Type="Int32" />
+            <Parameter Name="NuevaDisponibilidad" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Ruta">
+            <Parameter Name="IdRuta" Mode="In" Type="Int32" />
+            <Parameter Name="NuevaFechaSalida" Mode="In" Type="DateTime" />
+            <Parameter Name="NuevaFechaLlegada" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="companyModelStoreContainer" CdmEntityContainer="companyEntities">
+          <EntitySetMapping Name="Camions">
+            <EntityTypeMapping TypeName="companyModel.Camion">
+              <MappingFragment StoreEntitySet="Camion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+                <ScalarProperty Name="Kilometraje" ColumnName="Kilometraje" />
+                <ScalarProperty Name="UrlFoto" ColumnName="UrlFoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChangeLogCamions">
+            <EntityTypeMapping TypeName="companyModel.ChangeLogCamion">
+              <MappingFragment StoreEntitySet="ChangeLogCamion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Actionn" ColumnName="Actionn" />
+                <ScalarProperty Name="IdCamion" ColumnName="IdCamion" />
+                <ScalarProperty Name="ChangedAt" ColumnName="ChangedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChangeLogChofers">
+            <EntityTypeMapping TypeName="companyModel.ChangeLogChofer">
+              <MappingFragment StoreEntitySet="ChangeLogChofer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Actionn" ColumnName="Actionn" />
+                <ScalarProperty Name="IdChofer" ColumnName="IdChofer" />
+                <ScalarProperty Name="ChangedAt" ColumnName="ChangedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChangeLogRutas">
+            <EntityTypeMapping TypeName="companyModel.ChangeLogRuta">
+              <MappingFragment StoreEntitySet="ChangeLogRuta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Actionn" ColumnName="Actionn" />
+                <ScalarProperty Name="IdRuta" ColumnName="IdRuta" />
+                <ScalarProperty Name="ChangedAt" ColumnName="ChangedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chofers">
+            <EntityTypeMapping TypeName="companyModel.Chofer">
+              <MappingFragment StoreEntitySet="Chofer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="Licencia" ColumnName="Licencia" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rutas">
+            <EntityTypeMapping TypeName="companyModel.Ruta">
+              <MappingFragment StoreEntitySet="Ruta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+                <ScalarProperty Name="Destino" ColumnName="Destino" />
+                <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+                <ScalarProperty Name="FechaLlegada" ColumnName="FechaLlegada" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="ATiempo" ColumnName="ATiempo" />
+                <ScalarProperty Name="Distancia" ColumnName="Distancia" />
+                <ScalarProperty Name="IdCamion" ColumnName="IdCamion" />
+                <ScalarProperty Name="IdChofer" ColumnName="IdChofer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewCamions">
+            <EntityTypeMapping TypeName="companyModel.ViewCamion">
+              <MappingFragment StoreEntitySet="ViewCamion">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewChofers">
+            <EntityTypeMapping TypeName="companyModel.ViewChofer">
+              <MappingFragment StoreEntitySet="ViewChofer">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Licencia" ColumnName="Licencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewRutas">
+            <EntityTypeMapping TypeName="companyModel.ViewRuta">
+              <MappingFragment StoreEntitySet="ViewRuta">
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+                <ScalarProperty Name="Destino" ColumnName="Destino" />
+                <ScalarProperty Name="IdCamion" ColumnName="IdCamion" />
+                <ScalarProperty Name="IdChofer" ColumnName="IdChofer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_Delete_Camion" FunctionName="companyModel.Store.SP_Delete_Camion" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_chofer" FunctionName="companyModel.Store.SP_Delete_chofer" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_Ruta" FunctionName="companyModel.Store.SP_Delete_Ruta" />
+          <FunctionImportMapping FunctionImportName="SP_insert_camion" FunctionName="companyModel.Store.SP_insert_camion" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_chofer" FunctionName="companyModel.Store.SP_Insert_chofer" />
+          <FunctionImportMapping FunctionImportName="SP_insert_ruta" FunctionName="companyModel.Store.SP_insert_ruta" />
+          <FunctionImportMapping FunctionImportName="SP_update_camion" FunctionName="companyModel.Store.SP_update_camion" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Chofer" FunctionName="companyModel.Store.SP_Update_Chofer" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Ruta" FunctionName="companyModel.Store.SP_Update_Ruta" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
