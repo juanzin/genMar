@@ -17,8 +17,18 @@ namespace fotografiaMVC.Controllers
         // GET: About
         public ActionResult Index()
         {
-            var photographers = db.Photographers.Include(p => p.TypeUsers);
-            return View(photographers.ToList());
+            // var photographers = db.Photographers.Include(p => p.TypeUsers);
+            // var photographers = db.Photographers.ToList();
+            var photographer = db.Photographers.Where(p => p.Id == 1).ToList();
+
+            var model = new About
+            {
+                Description = photographer[0].Biography,
+                Instagram = photographer[0].Instagram,
+                Facebook = photographer[0].Facebook
+            };
+
+            return View(model);
         }
 
         // GET: About/Details/5
