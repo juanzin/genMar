@@ -129,7 +129,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\PhotographersController.cs" />
     <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,6 +150,7 @@
     <Compile Include="Models\Get_Photographer_info_for_about_Result.cs">
       <DependentUpon>photography.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Photographers.cs">
       <DependentUpon>photography.tt</DependentUpon>
     </Compile>
@@ -199,6 +203,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\mainStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -260,9 +265,12 @@
     <Content Include="Views\Photographers\Details.cshtml" />
     <Content Include="Views\Photographers\Edit.cshtml" />
     <Content Include="Views\Photographers\Index.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Manager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -1,0 +1,76 @@
+﻿@model fotografiaMVC.Models.Photo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="page-overlay"></div>
+
+<header class="hero">
+    <h1>Juan Onofre</h1>
+    <p class="subtitle">Professional Photographer</p>
+
+    <nav class="navbar">
+        <a href="" class="active">Portfolio</a>
+            <a href="/About/Index">About</a>
+            <a href="">Contact</a>
+    </nav>
+</header>
+
+<main class="gallery">
+    <div class="card">
+        <img id="ImgSnapshot" alt="Snapshots" src="@Model.Urls[6]"/>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+            <h2>Snapshots</h2>
+            <span class="line"></span>
+        </div>
+    </div>
+
+    <div class="card">
+        <img id="ImgMexico" alt="mexico" src="@Model.Urls[2]"/>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+            <h2>México</h2>
+            <span class="line"></span>
+        </div>
+    </div>
+
+    <div class="card">
+        <img id="ImgNature" alt="Nature" src="@Model.Urls[3]"/>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+            <h2>Nature</h2>
+            <span class="line"></span>
+        </div>
+    </div>
+
+    <div class="card">
+        <img id="ImgUnfreezing" alt="Unfreezing Time" src="@Model.Urls[7]"/>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+            <h2>Unfreezing Time</h2>
+            <span class="line"></span>
+        </div>
+    </div>
+
+    <div class="card">
+        <img id="ImgPortrait" alt="Portraits" src="@Model.Urls[4]"/>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+            <h2>Portraits</h2>
+            <span class="line"></span>
+        </div>
+    </div>
+
+    <div class="card">
+        <img id="ImgAnimal" alt="Animals" src="@Model.Urls[0]"/>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+            <h2>Animals</h2>
+            <span class="line"></span>
+        </div>
+    </div>
+</main>
