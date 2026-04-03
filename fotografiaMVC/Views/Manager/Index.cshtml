@@ -1,0 +1,182 @@
+﻿@model fotografiaMVC.Models.PhotographerInfo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page">
+    <header class="topbar">
+        <div class="breadcrumb">Manage Account</div>
+        <div class="user-box">
+            <span ID="labelUsername">Juan Onofre</span>
+            <div ID="labelAbreviationName" class="avatar">JO</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Manage Your Account</h1>
+            <p>Upload photos, edit your contact details, and keep your portfolio up to date.</p>
+        </div>
+
+        <%-- <nav class="nav">
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Messages</a>
+            <a href="#">Settings</a>
+        </nav>--%>
+    </section>
+
+    <main class="layout">
+        <section class="panel">
+            <h2 class="section-title">Gallery Management</h2>
+
+            <div class="upload-row">
+                <button class="btn">⬆ Upload Images</button>
+            </div>
+
+            <div class="gallery">
+                <div class="upload-card">
+                    <div class="icon">📷</div>
+                    <div>Add new photo</div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=600&q=80" alt="Photo 1">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=600&q=80" alt="Photo 2">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Photo 3">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=600&q=80" alt="Photo 4">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=600&q=80" alt="Photo 5">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=600&q=80" alt="Photo 6">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1515961892153-49ad34ad9ebf?auto=format&fit=crop&w=600&q=80" alt="Photo 7">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="Photo 8">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Photo 9">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=600&q=80" alt="Photo 10">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=600&q=80" alt="Photo 11">
+                    <div class="card-actions">
+                        <div class="action">✎</div>
+                        <div class="action">🗑</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <span>‹</span>
+                <div class="page-pill active">1</div>
+                <div class="page-pill">2</div>
+                <span>›</span>
+            </div>
+        </section>
+        @using (Html.BeginForm("Update", "Manager", FormMethod.Post))
+        {
+            <aside class="panel">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="field">
+                    <label class="label"><span class="emoji">👤</span> Username</label>
+                    <input id="inputUsername" type="text" placeholder="Enter new username" name="Username"/>
+                </div>
+                <div class="field">
+                    <label class="label"><span class="emoji">✉</span> Email Address</label>
+                    <input ID="inputEmail" type="email" placeholder="name.lastname@example.com" name="Email"/>
+                </div>
+
+                <div class="field">
+                    <label class="label"><span class="emoji">☎</span> Phone Number</label>
+                    <input ID="inputPhoneNumber" type="text" placeholder="(+55) 2228654931" name="Phone"/>
+                </div>
+
+                <div class="field">
+                    <label class="label"><span class="emoji">📍</span> Location</label>
+                    <input ID="inputLocation" type="text" placeholder="Puebla, Mexico" name="Location"/>
+                </div>
+
+                <div class="field">
+                    <label class="label"><span class="emoji">◎</span> Instagram</label>
+                    <input id="inputInstagram" type="text" placeholder="InstagramProfile" name="Instagram"/>
+                </div>
+                <div class="field">
+                    <label class="label"><span class="emoji">📘</span> Facebook</label>
+                    <input id="inputFacebook" type="text" placeholder="FacebookProfile" name="Facebook"/>
+                </div>
+
+                <div class="field">
+                    <label class="label"><span class="emoji">✎</span> Bio</label>
+                    <textarea id="inputBio" rows="5" placeholder="Landscape and cultural photographer based in Mexico." name="Description"></textarea>
+                </div>
+
+                <button type="submit" class="btn save-btn" Text="Update info" />
+            </aside>
+        }
+        </main>
+</div>
+

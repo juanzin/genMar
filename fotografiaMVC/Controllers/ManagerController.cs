@@ -13,13 +13,66 @@ namespace fotografiaMVC.Controllers
     public class ManagerController : Controller
     {
         private photographyEntities db = new photographyEntities();
-
+        private int ID_USER = 1;
         // GET: Manager
         public ActionResult Index()
         {
-            var photographers = db.Photographers.Include(p => p.TypeUsers);
-            return View(photographers.ToList());
+            // var photographers = db.Photographers.Include(p => p.TypeUsers);
+            var photographer = db.Photographers.FirstOrDefault(p => p.Id == ID_USER);
+            var model = new PhotographerInfo
+            {
+                Username = "",
+                Instagram = "",
+                Facebook = "",
+                Description = "description",
+                Phone = "",
+                Email = "email",
+                Location = "location",
+
+            };
+            return View(model);
         }
+
+        [HttpPost]
+        public ActionResult Update(PhotographerInfo model)
+        {
+
+            string username = model.Username;
+            string instagram = model.Instagram;
+            string facebook = model.Facebook;
+            string email = model.Email;
+            string phone = model.Phone;
+            string location = model.Location;
+            string description = model.Description;
+
+            //var user = new Photographers
+            //{
+            //    Name = originalPhotographerInfo.Name,
+            //    Materno = originalPhotographerInfo.Materno,
+            //    Paterno = originalPhotographerInfo.Paterno,
+            //    Username = username,
+            //    UrlFoto = originalPhotographerInfo.UrlFoto,
+            //    Password = originalPhotographerInfo.Password,
+            //    Instagram = instagram,
+            //    Facebook = facebook,
+            //    Biography = description,
+            //    Email = email,
+            //    Type_User = 1
+            //};
+            var photographer = db.Photographers.FirstOrDefault(p => p.Id == ID_USER);
+            photographer.Username = username;
+            photographer.Instagram = instagram;
+            photographer.Facebook = facebook;
+            photographer.Biography = description;
+            photographer.Email = email;
+
+            // db.Photographers.Add(user);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
 
         // GET: Manager/Details/5
         public ActionResult Details(int? id)

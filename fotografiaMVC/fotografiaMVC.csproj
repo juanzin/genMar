@@ -152,6 +152,7 @@
       <DependentUpon>photography.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\PhotographerInfo.cs" />
     <Compile Include="Models\Photographers.cs">
       <DependentUpon>photography.tt</DependentUpon>
     </Compile>
@@ -206,6 +207,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\mainStyles.css" />
+    <Content Include="Content\managerStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -269,10 +271,10 @@
     <Content Include="Views\Photographers\Index.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Manager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
